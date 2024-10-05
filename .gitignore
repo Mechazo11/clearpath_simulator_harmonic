@@ -1,5 +1,15 @@
 # Ignore everything in src/
-src/*
+src/**
 
-# Except this file to keep src/ in the repo
+# Don't ignore the src/ directory itself
+!src/
+
+# Don't ignore directories under src/ (allows re-including specific ones)
+!src/**/
+
+# Re-include specific packages (replace 'package1' and 'package2' with your package names)
+!src/package1/**
+!src/package2/**
+
+# Keep a file like .gitkeep in the src/ directory to ensure it's tracked
 !src/.gitkeep
