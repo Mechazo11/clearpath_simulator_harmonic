@@ -1,0 +1,5 @@
+# Ignore everything in src/
+src/*
+
+# Except this file to keep src/ in the repo
+!src/.gitkeep
