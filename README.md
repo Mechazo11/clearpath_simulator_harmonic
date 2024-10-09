@@ -38,7 +38,10 @@ vcs import src < project.repos
 rosdep install -r --from-paths src --rosdistro humble -i -y --skip-keys "ros-humble-rosidl ros-humble-rcutils ros-humble-rcl-interfaces"
 source /opt/ros/humble/setup.bash
 source ~/gazebo_ws/install/setup.bash
-colcon build --packages-select ros_gz_bridge --packages-ignore  rosidl_cli test_msgs
+colcon build --packages-select controller_manager_msgs --packages-ignore  rosidl_cli test_msgs
+colcon build --packages-select lifecycle_msgs --cmake-clean-cache
+ls /home/icore/mppi_rose25_ws/install/lifecycle_msgs/share/lifecycle_msgs/msg/
+
 colcon build --symlink-install --packages-ignore rosidl_cli test_msgs --cmake-args -DCMAKE_CXX_FLAGS="-w"
 
 ```
