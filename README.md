@@ -1,6 +1,9 @@
+![BSD-3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
 # TODO title
 
 **TODO** a few liner description and high level pictures. pictures of result curves.
+
+## Setup instructions
 
 See the ```Notes.md``` for some my notes.
 
@@ -10,7 +13,7 @@ See the ```Notes.md``` for some my notes.
 
 * [x] Find a ROS 2 compliant skid-steering model for Clearpath Husky.
 
-* [ ] Do a one run review of the MPPI-Generic algorithm to determine how to create a wrapper for it.
+* [x] Do a one run review of the MPPI-Generic algorithm to determine how to create a wrapper for it.
 
 * [ ] Test and update clearpath's extra testing env to be compatible with Gazebo Harmonic (Gazebo 8). Start creating ```project.repos```
 

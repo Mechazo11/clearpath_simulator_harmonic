@@ -11,7 +11,7 @@ This markdown keeps all my notes for the RoSE 25 paper which is the final projec
 
 ## Which vehicle model do we use?
 
-Two are available. Either Ackermann model (from ros2_rover) or differential drive (skid-steering) controller. We will use Skid-Steering kinematics as Husky robot will be easy to setup for experimentaionts. It appears just getting MPPI-Generic to correctly work will be enough.
+Two are available. Either Ackermann model (from ros2_rover) or differential drive (skid-steering) controller. We will use Skid-Steering kinematics as Husky robot will be easy to setup for experimentaionts. It appears just getting MPPI-Generic to correctly work will be enough. So we will just stick to **Skid-steering vehicle**.
 
 Excerpt from discussion with Chatgpt o1-preview are as follows
 
@@ -26,8 +26,6 @@ the control inputs for trajectory planning.
 [Modelling and Control of a Skid-Steering Mobile Robot for Indoor Trajectory Tracking Application](https://webthesis.biblio.polito.it/14638/1/tesi.pdf): This paper validated the dynamics model on the clearpath husky which is what we will use. This will be another way we will verify that the chosen model is valid.
 [video1](https://www.youtube.com/watch?v=FjrgZMmWTNI): Evaluation of Skid-Steering Kinematic Model for Subartic enviornment
 [Modelling, Simulation and Control of a 4-wheeled mobile robot](https://www.youtube.com/watch?v=ad2jd8SCK-o)
-
-
 
 
 ## Notes from Aggressive Driving with Model Predictive Path Integral Control [1]
@@ -90,6 +88,8 @@ According to Chatgpt o1 preview, the cost function of Nav2's MPPI controller is 
 
 * We will use Clearpath husky models in Gazebo Harmonic (updated from Fortress): https://docs.clearpathrobotics.com/docs/ros/tutorials/simulator/overview/
 
+* Clearpath has packages to use with Gazebo Fortress here: https://github.com/clearpathrobotics/clearpath_simulator
+* My fork of this simulator that works with Harmonic:   
 
 ---
 ## Paper references

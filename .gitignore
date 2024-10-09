@@ -8,7 +8,7 @@ src/**
 !src/**/
 
 # Re-include specific packages (replace 'package1' and 'package2' with your package names)
-!src/package1/**
+!src/clearpath_simulator_harmonic/**
 !src/package2/**
 
 # Keep a file like .gitkeep in the src/ directory to ensure it's tracked
