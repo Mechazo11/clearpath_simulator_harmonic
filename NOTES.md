@@ -98,6 +98,7 @@ According to Chatgpt o1 preview, the cost function of Nav2's MPPI controller is 
 * [2] MPOPI paper
 * [3] MPPI-Generic paper
 * [4] A Multi-step Dynamics Modeling Framework For Autonomous Driving In Multiple Environments: Required to talk as an example of why I chose MPPI-Generic to package as ROS 2 package
+* [5] https://ieeexplore.ieee.org/document/10665978 an example of uav simulators and potential future work
 
 ## External references
 

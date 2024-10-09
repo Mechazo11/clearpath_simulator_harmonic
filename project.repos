@@ -1,4 +1,8 @@
 repositories:
+  unique_identifier_msgs:
+    type: git
+    url: https://github.com/ros2/unique_identifier_msgs.git
+    version: rolling 
   rcl_interfaces:
     type: git
     url: https://github.com/Mechazo11/rcl_interfaces.git
@@ -78,6 +82,14 @@ repositories:
   gz_plugin_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_plugin_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  sdformat_vendor:
+    type: git
+    url: https://github.com/gazebo-release/sdformat_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  gz_sensors_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_sensors_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
   gz_ros2_control:
     type: git

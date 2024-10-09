@@ -8,6 +8,8 @@
 * Intall these prerequisits
 
 ```bash
+sudo apt-get install ros-humble-std-msgs
+sudo apt install ros-humble-unique-identifier-msgs
 sudo apt install ros-humble-ros2-control
 sudo apt install ros-humble-ament-cmake-vendor-package
 ```
@@ -21,11 +23,14 @@ cd ~
 git clone https://github.com/Mechazo11/mppi_rose25_ws.git
 cd mppi_rose25_ws/
 vcs import src < project.repos
+rosdep install -r --from-paths src -i -y
 rosdep install -r --from-paths src -i -y --skip-keys "gz_plugin_vendor libignition-gazebo6-dev ros-humble-ign-ros2-control ros-humble-ros-gz"
 
 source /opt/ros/humble/setup.bash
 source ~/gazebo_ws/install/setup.bash
-colcon build --symlink-install
+colcon build --symlink-install --packages-ignore rosidl_cli
+colcon build --symlink-install --packages-ignore rosidl_cli --cmake-args -DCMAKE_CXX_FLAGS="-w"
+
 ```
 
 
