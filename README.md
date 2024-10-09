@@ -5,6 +5,14 @@
 
 ## Setup instructions
 
+* Intall these prerequisits
+
+```bash
+sudo apt install ros-humble-ros2-control
+sudo apt install ros-humble-rosidl-typesupport-c
+sudo apt install ros-humble-ament-cmake-vendor-package
+```
+
 * Open a terminal and execute the following commands
 
 ```bash
@@ -14,9 +22,10 @@ cd ~
 git clone https://github.com/Mechazo11/mppi_rose25_ws.git
 cd mppi_rose25_ws/
 vcs import src < project.repos
-rosdep install -r --from-paths src -i --simulate
+rosdep install --from-paths src -i -y --skip-keys "gz_plugin_vendor libignition-gazebo6-dev ros-humble-ign-ros2-control ros-humble-ros-gz"
 
-rosdep install -r --from-paths src -i -y --skip-keys "ros-humble-ign-ros2-control ros-humble-ros-gz libignition-gazebo6-dev"
+source /opt/ros/humble/setup.bash
+source ~/gazebo_ws/install/setup.bash
 colcon build --symlink-install
 ```
 

@@ -4,3 +4,7 @@ src/**
 # Don't ignore the src/ directory itself and keep .gitkeep
 !src/
 !src/.gitkeep
+
+/build/
+/log/
+/install/

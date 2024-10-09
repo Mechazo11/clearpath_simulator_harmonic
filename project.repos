@@ -1,8 +1,28 @@
 repositories:
+  gz_transport_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_transport_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  gz_sim_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_sim_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  gz_msgs_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_msgs_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  gz_math_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_math_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  gz_cmake_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_cmake_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
   ros_gz:
     type: git
     url: https://github.com/gazebosim/ros_gz.git
-    version: humble
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
   gz_plugin_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_plugin_vendor.git
