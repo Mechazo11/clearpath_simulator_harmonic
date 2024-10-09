@@ -4,12 +4,12 @@ src/**
 # Don't ignore the src/ directory itself
 !src/
 
-# Don't ignore directories under src/ (allows re-including specific ones)
-!src/**/
+# # Don't ignore directories under src/ (allows re-including specific ones)
+# !src/**/
 
-# Re-include specific packages (replace 'package1' and 'package2' with your package names)
-!src/clearpath_simulator_harmonic/**
-!src/package2/**
+# # Re-include specific packages (replace 'package1' and 'package2' with your package names)
+# !src/clearpath_simulator_harmonic/**
+# !src/package2/**
 
 # Keep a file like .gitkeep in the src/ directory to ensure it's tracked
 !src/.gitkeep
