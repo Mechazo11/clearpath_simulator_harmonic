@@ -47,3 +47,13 @@ See the ```Notes.md``` for some my notes.
 * [x] Find a ROS 2 compliant skid-steering model for Clearpath Husky.
 * [x] Do a one run review of the MPPI-Generic algorithm to determine how to create a wrapper for it.
 * [x] Start a repo for running the project, track it directly within the workspace
+
+
+```bash
+CMake Error at /home/tigerwife/mppi_rose25_ws/install/rosidl_cmake/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:178 (message):
+  Unable to generate service interface for 'srv/ConfigureMcu.srv'.  In order
+  to generate service interfaces you must add a depend tag for 'service_msgs'
+  in your package.xml.
+Call Stack (most recent call first):
+  CMakeLists.txt:18 (rosidl_generate_interfaces)
+```

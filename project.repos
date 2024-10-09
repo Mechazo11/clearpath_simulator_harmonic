@@ -1,15 +1,11 @@
 repositories:
   rcl_interfaces:
     type: git
-    url: https://github.com/ros2/rcl_interfaces.git
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
+    url: https://github.com/Mechazo11/rcl_interfaces.git
+    version: rolling # Contains fix for service_msgs
   rosidl_core:
     type: git
     url: https://github.com/ros2/rosidl_core.git
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
-  rcl_interfaces:
-    type: git
-    url: https://github.com/ros2/rcl_interfaces.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
   rcutils:
     type: git
@@ -101,5 +97,5 @@ repositories:
     version: main
   clearpath_msgs:
     type: git
-    url: https://github.com/clearpathrobotics/clearpath_msgs.git
-    version: main
+    url: https://github.com/Mechazo11/clearpath_msgs.git # My fork
+    version: humble
