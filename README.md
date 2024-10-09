@@ -8,8 +8,6 @@
 * Intall these prerequisits
 
 ```bash
-sudo apt-get install ros-humble-std-msgs
-sudo apt install ros-humble-unique-identifier-msgs
 sudo apt install ros-humble-ros2-control
 sudo apt install ros-humble-ament-cmake-vendor-package
 ```
