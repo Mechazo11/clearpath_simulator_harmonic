@@ -1,0 +1,29 @@
+repositories:
+  ros_gz:
+    type: git
+    url: https://github.com/gazebosim/ros_gz.git
+    version: humble
+  gz_plugin_vendor:
+    type: git
+    url: https://github.com/gazebo-release/gz_plugin_vendor.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  gz_ros2_control:
+    type: git
+    url: https://github.com/ros-controls/gz_ros2_control.git
+    version: jazzy # Jazzy branch required to be compatible with Harmonic
+  clearpath_simulator_harmonic:
+    type: git
+    url: https://github.com/Mechazo11/clearpath_simulator_harmonic.git
+    version: harmonic_dev
+  clearpath_common:
+    type: git
+    url: https://github.com/clearpathrobotics/clearpath_common.git
+    version: humble
+  clearpath_config:
+    type: git
+    url: https://github.com/clearpathrobotics/clearpath_config.git
+    version: main
+  clearpath_msgs:
+    type: git
+    url: https://github.com/clearpathrobotics/clearpath_msgs.git
+    version: main
