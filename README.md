@@ -5,6 +5,8 @@
 
 ## Setup instructions
 
+* Note ```gz_cmake_vendor, gz_math_vendor and gz_utils_vendor``` needs to be available to the underlaying/base ros 2 workspace
+
 * Intall these prerequisits
 
 ```bash
@@ -22,6 +24,18 @@ mkdir build && cd build
 cmake ..
 sudo make -j4
 sudo make install -j4
+```
+
+* **TODO** how to setup ubuntu22_jazzy_ws
+
+```bash
+cd ~
+git clone https://github.com/Mechazo11/mppi_rose25_ws.git
+cd mppi_rose25_ws/
+mkdir src
+vcs import src < project.repos
+rosdep install --from-paths src --ignore-src -y
+colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
 * Open a terminal and execute the following commands

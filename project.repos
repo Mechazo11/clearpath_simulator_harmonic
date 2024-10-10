@@ -1,101 +1,65 @@
 repositories:
-  rosidl_core:
-    type: git
-    url: https://github.com/ros2/rosidl_core.git
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
-  rcl_interfaces:
-    type: git
-    url: https://github.com/Mechazo11/rcl_interfaces.git
-    version: rolling # my fork, contains fix for service_msgs
-  rcutils:
-    type: git
-    url: https://github.com/ros2/rcutils.git
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
-  rosidl:
-    type: git
-    url: https://github.com/ros2/rosidl.git
-    version: jazzy # Jazzy build contains the rosild_pycommon package
-  yaml_cpp_vendor:
-    type: git
-    url: https://github.com/ros2/yaml_cpp_vendor.git
-    version: humble
-  gz_ogre_next_vendor:
+  gazebo-release/gz_ogre_next_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_ogre_next_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_rending_vendor:
+  gazebo-release/gz_rending_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_rendering_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_gui_vendor:
+  gazebo-release/gz_gui_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_gui_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_fuel_tools_vendor:
+  gazebo-release/gz_fuel_tools_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_fuel_tools_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_common_vendor:
+  gazebo-release/gz_common_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_common_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_utils_vendor:
-    type: git
-    url: https://github.com/gazebo-release/gz_utils_vendor
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_tool_vendor:
+  gazebo-release/gz_tool_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_tools_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_transport_vendor:
+  gazebo-release/gz_transport_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_transport_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_sim_vendor:
+  gazebo-release/gz_sim_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_sim_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_msgs_vendor:
+  gazebo-release/gz_msgs_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_msgs_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_math_vendor:
-    type: git
-    url: https://github.com/gazebo-release/gz_math_vendor.git
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_cmake_vendor:
-    type: git
-    url: https://github.com/gazebo-release/gz_cmake_vendor.git
-    version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_physics_vendor:
+  gazebo-release/gz_physics_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_physics_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_dartsim_vendor:
+  gazebo-release/gz_dartsim_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_dartsim_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  ros_gz:
+  gazebo-release/ros_gz:
     type: git
     url: https://github.com/gazebosim/ros_gz.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_plugin_vendor:
+  gazebo-release/gz_plugin_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_plugin_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  sdformat_vendor:
+  gazebo-release/sdformat_vendor:
     type: git
     url: https://github.com/gazebo-release/sdformat_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  gz_sensors_vendor:
+  gazebo-release/gz_sensors_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_sensors_vendor.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  ros2_control:
-    type: git
-    url: https://github.com/Mechazo11/ros2_control.git
-    version: fix_service_msg
-  gz_ros2_control:
+  gazebo-release/gz_ros2_control:
     type: git
     url: https://github.com/ros-controls/gz_ros2_control.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
