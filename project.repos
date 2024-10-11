@@ -63,19 +63,27 @@ repositories:
     type: git
     url: https://github.com/ros-controls/gz_ros2_control.git
     version: jazzy # Jazzy branch required to be compatible with Harmonic
-  clearpath_simulator_harmonic:
+  clearpathrobotics/clearpath_simulator_harmonic:
     type: git
     url: https://github.com/Mechazo11/clearpath_simulator_harmonic.git
     version: harmonic_dev
-  clearpath_common:
+  clearpathrobotics/clearpath_common:
     type: git
     url: https://github.com/clearpathrobotics/clearpath_common.git
     version: humble
-  clearpath_config:
+  clearpathrobotics/clearpath_config:
     type: git
     url: https://github.com/clearpathrobotics/clearpath_config.git
     version: main
-  clearpath_msgs:
+  clearpathrobotics/clearpath_msgs:
     type: git
     url: https://github.com/Mechazo11/clearpath_msgs.git # My fork
     version: humble
+  clearpathrobotics/puma_motor_driver:
+    type: git
+    url: https://github.com/Mechazo11/puma_motor_driver.git
+    version: jazzy
+  rudislabs/actuator_msgs:
+    type: git
+    url: https://github.com/rudislabs/actuator_msgs.git
+    version: main
