@@ -33,15 +33,20 @@ sudo make install -j4
 ```bash
 cd ~
 git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
-cd mppi_rose25_ws/
+cd clearpath_simulator_harmonic_ws/
 mkdir src
 vcs import src < project.repos --recursive
 rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
-colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
+colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
+
+* Before running build
+
+```sudo apt remove ros-humble*```
+
 
 * Test launch: **TODO**
 
