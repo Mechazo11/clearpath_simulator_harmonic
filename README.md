@@ -1,13 +1,15 @@
-![BSD-3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
-# TODO title
+![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+# Clearpath Simulator for Gazebo Harmonic
 
-**TODO** a few liner description and high level pictures. pictures of result curves.
+A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages.
+
+## Compatibility
+
+* Ubuntu 22.04: Requires three workspaces in order ROS 2 Jazzy --> Gazebo Harmonic --> Moveit2 Jazzy
+* Ubuntu 24.04: **TODO**
 
 ## Setup instructions
-
-* Note ```gz_cmake_vendor, gz_math_vendor and gz_utils_vendor``` needs to be available to the underlaying/base ros 2 workspace
-
-* Intall these prerequisits
+* Intall these prerequisits first
 
 ```bash
 sudo apt-get install libyaml-cpp-dev # needed by ros_gz_bridge
@@ -34,49 +36,15 @@ git clone https://github.com/Mechazo11/mppi_rose25_ws.git
 cd mppi_rose25_ws/
 mkdir src
 vcs import src < project.repos
-rosdep install --from-paths src --ignore-src -y
+rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_ws/install/setup.bash
+source ~/moveit2_jazzy_ws/install/setup.bash
 colcon build --symlink-install
 ```
 
-* Open a terminal and execute the following commands
 
-```bash
-sudo apt update
-sudo apt upgrade
-rosdep update
-cd ~
-git clone https://github.com/Mechazo11/mppi_rose25_ws.git
-cd mppi_rose25_ws/
-mkdir src
-vcs import src < project.repos
-rosdep install -r --from-paths src --rosdistro jazzy -i -y --skip-keys "ros-humble-rosidl ros-humble-rcutils ros-humble-rcl-interfaces"
 
-colcon build --packages-select controller_manager_msgs --packages-ignore  rosidl_cli test_msgs
-colcon build --packages-select lifecycle_msgs --cmake-clean-cache
-ls /home/icore/mppi_rose25_ws/install/lifecycle_msgs/share/lifecycle_msgs/msg/
-
-colcon build --symlink-install --packages-ignore rosidl_cli test_msgs --cmake-args -DCMAKE_CXX_FLAGS="-w"
-
-```
-
-### Misc
-
-* Generate a package list for moveit2
-
-```bash
-cd ~/Downloads
-git clone https://github.com/moveit/moveit2.git -b main
-cd moveit2/
-rosinstall_generator \
-  --rosdistro jazzy \
-  --deps -- \
-  --exclude-path ~/ubuntu22_jazzy_ws/src \
-  --exclude $(cat excluded-pkgs.txt) -- \
-  -- $(cat moveit2-pkgs.txt) \
-  > moveit2_generated_pkgs.repos
-```
 
 
 See the ```Notes.md``` for some my notes.
