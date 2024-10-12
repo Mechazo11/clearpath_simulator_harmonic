@@ -32,39 +32,18 @@ sudo make install -j4
 
 ```bash
 cd ~
-git clone https://github.com/Mechazo11/mppi_rose25_ws.git
+git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
 cd mppi_rose25_ws/
 mkdir src
-vcs import src < project.repos
+vcs import src < project.repos --recursive
 rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
-colcon build --symlink-install
+colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
-
-
-
-
-See the ```Notes.md``` for some my notes.
-
-# Project TODO
-
-* [ ] Test and update clearpath's extra testing env to be compatible with Gazebo Harmonic (Gazebo 8). Start creating ```project.repos```
-
-* [ ] Understand how to put the skid-steering kinematics model for a 4 wheel robot. Go through the master thesis and book given by Farid
-
-* [ ] Start a separate repo for a ROS 2 wrapper for MPPI-Generic. Figure out if we can create a node to run the cartpole example correctly.
-
----
-
-## Done
-
-* [x] Find a suitable ackermann drive mars rover model: (ros2_rover)
-* [x] Find a ROS 2 compliant skid-steering model for Clearpath Husky.
-* [x] Do a one run review of the MPPI-Generic algorithm to determine how to create a wrapper for it.
-* [x] Start a repo for running the project, track it directly within the workspace
+* Test launch: **TODO**
 
 
 ```bash

@@ -87,3 +87,11 @@ repositories:
     type: git
     url: https://github.com/rudislabs/actuator_msgs.git
     version: main
+  swri-robotics/gps_umd:
+    type: git
+    url: https://github.com/swri-robotics/gps_umd.git
+    version: ros2-devel
+  ros-perception/vision_msgs:
+    type: git
+    url: https://github.com/ros-perception/vision_msgs.git
+    version: ros2

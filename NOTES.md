@@ -2,6 +2,23 @@
 
 This markdown keeps all my notes for the RoSE 25 paper which is the final project for EE 7500 MPC class.
 
+# Project TODO
+
+* [ ] Test and update clearpath's extra testing env to be compatible with Gazebo Harmonic (Gazebo 8). Start creating ```project.repos```
+
+* [ ] Understand how to put the skid-steering kinematics model for a 4 wheel robot. Go through the master thesis and book given by Farid
+
+* [ ] Start a separate repo for a ROS 2 wrapper for MPPI-Generic. Figure out if we can create a node to run the cartpole example correctly.
+
+---
+
+## Done
+
+* [x] Find a suitable ackermann drive mars rover model: (ros2_rover)
+* [x] Find a ROS 2 compliant skid-steering model for Clearpath Husky.
+* [x] Do a one run review of the MPPI-Generic algorithm to determine how to create a wrapper for it.
+* [x] Start a repo for running the project, track it directly within the workspace
+
 ## Paper note
 
 * The test problem is formulated as finite-horizon optimal control problem [1]
