@@ -3,32 +3,41 @@
 
 A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages.
 
+
 ## Compatibility
 
 * Ubuntu 22.04: Requires three workspaces in order ROS 2 Jazzy --> Gazebo Harmonic --> Moveit2 Jazzy
 * Ubuntu 24.04: **TODO**
 
-## Setup instructions
-* Intall these prerequisits first
+## Ensure ROS 2 Humble global or source built workspace is not sourced
+
+* **EXPERIMENTAL** If you have previously used ROS 2 Humble, you need to first ensure that the ROS 2 Humble global workspace is not sourced. Follow the steps below
 
 ```bash
-sudo apt-get install libyaml-cpp-dev # needed by ros_gz_bridge
+echo $PATH # check /opt/ros/humble is included in the PATH variable
+export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/opt/ros/humble" | tr '\n' ':' | sed 's/:$//')
+```
+
+
+* **WARNING!!** in the event the above mehod doesn't work, the easiest thing to do is to remove ROS 2 Humble binaries from **system-level** using ```sudo apt remove ros-humble*```. Please note, if you need to use ROS 2 Humble again, you would need to reinstall the binaries or build ROS 2 humble from source.
+
+
+* Intall the following prerequisits first
+
+```bash
+sudp apt update
+sudo apt upgrade
+sudo apt-get install libyaml-cpp-dev
 pip3 install catkin_pkg
 ```
 
-* Source build yaml-cpp if you don't have it installed already: https://github.com/jbeder/yaml-cpp
+* Build a ROS 2 Jazzy source from source: https://github.com/Mechazo11/ubuntu22_jazzy_ws
 
-```bash
-cd ~/Downloads
-git clone https://github.com/jbeder/yaml-cpp.git
-cd yaml-cpp
-mkdir build && cd build
-cmake ..
-sudo make -j4
-sudo make install -j4
-```
+* Build Gazebo Harmonic from source: **TODO**
 
-* Build a ROS 2 Jazzy source
+* Build Moveit2 (Jazzy compatible) version from source: https://github.com/Mechazo11/moveit2_jazzy_ws
+
+* Build this workspace
 
 ```bash
 cd ~
@@ -42,11 +51,6 @@ source ~/gazebo_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
 colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
-
-* Before running build
-
-```sudo apt remove ros-humble*```
-
 
 * Test launch: **TODO**
 
