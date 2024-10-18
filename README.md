@@ -31,13 +31,15 @@ sudo apt-get install libyaml-cpp-dev
 pip3 install catkin_pkg
 ```
 
-* Build a ROS 2 Jazzy source from source: https://github.com/Mechazo11/ubuntu22_jazzy_ws
-
-* Build Gazebo Harmonic from source: **TODO**
-
-* Build Moveit2 (Jazzy compatible) version from source: https://github.com/Mechazo11/moveit2_jazzy_ws
-
-* Build this workspace
+* Build the three workspaces shown below. Make sure they are done exactly in the sequence shown belo
+  
+  * Build a **ROS 2 Jazzy** source from source: https://github.com/Mechazo11/ubuntu22_jazzy_ws
+  
+  * Build **Gazebo Harmonic** workspace from from source: https://github.com/Mechazo11/gazebo_harmonic_ws
+  
+  * Build Moveit2 (Jazzy compatible) version from source: https://github.com/Mechazo11/moveit2_jazzy_ws
+  
+  * Build this workspace
 
 ```bash
 cd ~
@@ -52,7 +54,15 @@ source ~/moveit2_jazzy_ws/install/setup.bash
 colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
-* Test launch: **TODO**
+* Test launch: Source all underlay workspaces in sequence
+
+```bash
+source ~/ubuntu22_jazzy_ws/install/setup.bash
+source ~/gazebo_ws/install/setup.bash
+source ~/moveit2_jazzy_ws/install/setup.bash
+source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+
+```
 
 
 ```bash
