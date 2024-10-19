@@ -3,6 +3,7 @@
 
 A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages.
 
+Clearpath uses a **single yaml** file to customize its robots. More details here https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/
 
 ## Compatibility
 
@@ -54,14 +55,15 @@ source ~/moveit2_jazzy_ws/install/setup.bash
 colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
+* Create a ```clearpath``` directory in ```/home```. This is where all [robot yaml](https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/) files that define a certain clearpath robot build will be housed.
+
 * Test launch: Source all underlay workspaces in sequence
 
 ```bash
 source ~/ubuntu22_jazzy_ws/install/setup.bash
-source ~/gazebo_ws/install/setup.bash
+source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
 source ~/clearpath_simulator_harmonic_ws/install/setup.bash
-
 ```
 
 
