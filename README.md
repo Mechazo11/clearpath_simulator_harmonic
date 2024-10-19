@@ -25,7 +25,7 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/opt/ros/humble" | tr '\n' ':'
 * Intall the following prerequisits first
 
 ```bash
-sudp apt update
+sudo apt update
 sudo apt upgrade
 sudo apt-get install libyaml-cpp-dev
 pip3 install catkin_pkg
@@ -46,10 +46,10 @@ cd ~
 git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
 cd clearpath_simulator_harmonic_ws/
 mkdir src
-vcs import src < project.repos --recursive
+vcs import src < clearpath_sim.repos --recursive
 rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
-source ~/gazebo_ws/install/setup.bash
+source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
 colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```

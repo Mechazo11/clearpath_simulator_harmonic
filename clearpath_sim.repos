@@ -1,0 +1,21 @@
+repositories:
+  clearpathrobotics/clearpath_simulator_harmonic:
+    type: git
+    url: https://github.com/clearpathrobotics/clearpath_simulator.git
+    version: jazzy
+  clearpathrobotics/clearpath_common:
+    type: git
+    url: https://github.com/clearpathrobotics/clearpath_common.git
+    version: humble
+  clearpathrobotics/clearpath_config:
+    type: git
+    url: https://github.com/clearpathrobotics/clearpath_config.git
+    version: main
+  clearpathrobotics/clearpath_msgs:
+    type: git
+    url: https://github.com/Mechazo11/clearpath_msgs.git # My fork
+    version: humble
+  clearpathrobotics/puma_motor_driver:
+    type: git
+    url: https://github.com/Mechazo11/puma_motor_driver.git
+    version: jazzy
