@@ -52,7 +52,7 @@ rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
-colcon build --cmake-args -DCMAKE_CXX_FLAGS="-w"
+colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
 * Create a ```clearpath``` directory in ```/home```. This is where all [robot yaml](https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/) files that define a certain clearpath robot build will be housed.
