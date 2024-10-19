@@ -64,6 +64,7 @@ source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
 source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
 ```
 
 
