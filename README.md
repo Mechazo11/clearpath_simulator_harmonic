@@ -61,6 +61,7 @@ cd ~
 git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
 cd clearpath_simulator_harmonic_ws/
 mkdir src
+vcs import src < gz_jazzy.repos --recursive
 vcs import src < clearpath_sim.repos --recursive
 rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
