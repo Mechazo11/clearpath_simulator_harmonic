@@ -15,6 +15,10 @@ A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_
 
 * In ROS 1 Clearpath Robotics had ```cpr_gazebo``` which contained a good number of indoor and outdoor worlds. However that simulator is no longer maintained [porting](https://github.com/Mechazo11/cpr_gazebo_ros2) them from ROS 1 would require significant time and effort. In this package, I have updated a few of the world files for use
 
+* List of packages that were modified / needs to use my fork
+   * clearpath_simulation: https://github.com/Mechazo11/clearpath_simulator_harmonic 
+   * clearpath_generator_common: **TODO**
+
 ## Useful Resources
 
 * [Migration from Gazebo Classic: SDF](https://gazebosim.org/api/sim/8/migrationsdf.html)
@@ -69,7 +73,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
 
-* Test launch: Source all underlay workspaces in sequence
+* Test launch: In a new terminal, source all workspaces in the following sequence
 
 ```bash
 source ~/ubuntu22_jazzy_ws/install/setup.bash

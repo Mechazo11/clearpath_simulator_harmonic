@@ -1,12 +1,12 @@
 repositories:
-  clearpathrobotics/clearpath_simulator_harmonic:
+  clearpathrobotics/clearpath_harmonic:
     type: git
-    url: https://github.com/Mechazo11/clearpath_simulator_harmonic.git
+    url: https://github.com/Mechazo11/clearpath_simulator.git
     version: harmonic-dev
   clearpathrobotics/clearpath_common:
     type: git
-    url: https://github.com/clearpathrobotics/clearpath_common.git
-    version: humble
+    url: https://github.com/Mechazo11/clearpath_common.git
+    version: harmonic-dev
   clearpathrobotics/clearpath_config:
     type: git
     url: https://github.com/clearpathrobotics/clearpath_config.git
