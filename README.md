@@ -1,14 +1,28 @@
 ![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+
 # Clearpath Simulator for Gazebo Harmonic
 
-A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages.
-
-Clearpath uses a **single yaml** file to customize its robots. More details here https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/
+A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages. Clearpath uses a **single yaml** file to customize its robots. More details here https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/
 
 ## Compatibility
 
 * Ubuntu 22.04: Requires three workspaces in order ROS 2 Jazzy --> Gazebo Harmonic --> Moveit2 Jazzy
 * Ubuntu 24.04: **TODO**
+
+## Major Changes
+
+* ```warehouse.sdf``` is updated to be compatible with Gazebo Harmonic
+
+* In ROS 1 Clearpath Robotics had ```cpr_gazebo``` which contained a good number of indoor and outdoor worlds. However that simulator is no longer maintained [porting](https://github.com/Mechazo11/cpr_gazebo_ros2) them from ROS 1 would require significant time and effort. In this package, I have updated a few of the world files for use
+
+## Useful Resources
+
+* [Migration from Gazebo Classic: SDF](https://gazebosim.org/api/sim/8/migrationsdf.html)
+* [ROS 2 and Gazebo Integration Best Practices](https://vimeo.com/showcase/9954564/video/767127300)
+* [Spherical Coordinates](https://gazebosim.org/api/sim/8/spherical_coordinates.html)
+* [Finding resources](https://gazebosim.org/api/sim/8/resources.html)
+* [GZ_SIM_RESOURCE_PATH](https://robotics.stackexchange.com/questions/108511/what-should-gz-sim-resource-path-be-pointing-to)
+
 
 ## Ensure ROS 2 Humble global or source built workspace is not sourced
 
@@ -55,7 +69,6 @@ source ~/moveit2_jazzy_ws/install/setup.bash
 colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
-* Create a ```clearpath``` directory in ```/home```. This is where all [robot yaml](https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/) files that define a certain clearpath robot build will be housed.
 
 * Test launch: Source all underlay workspaces in sequence
 
@@ -64,7 +77,24 @@ source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
 source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+export GZ_VERSION=harmonic 
+ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
+```
+
+```bash
+source ~/ubuntu22_jazzy_ws/install/setup.bash
+source ~/gazebo_harmonic_ws/install/setup.bash
+source ~/moveit2_jazzy_ws/install/setup.bash
+source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+export GZ_VERSION=harmonic 
 ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
+```
+
+Test stuff
+
+```bash
+colcon build --symlink-install --packages-select cpr_empty_gz
+source ./install/setup.bash
 ```
 
 
