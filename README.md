@@ -43,7 +43,6 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/opt/ros/humble" | tr '\n' ':'
 sudo apt update
 sudo apt upgrade
 sudo apt-get install libyaml-cpp-dev
-pip3 install catkin_pkg
 ```
 
 * Build the three workspaces shown below. Make sure they are done exactly in the sequence shown belo
@@ -61,7 +60,6 @@ cd ~
 git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
 cd clearpath_simulator_harmonic_ws/
 mkdir src
-vcs import src < gz_jazzy.repos --recursive
 vcs import src < clearpath_sim.repos --recursive
 rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
@@ -78,25 +76,23 @@ source ~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
 source ~/clearpath_simulator_harmonic_ws/install/setup.bash
-export GZ_VERSION=harmonic 
-ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
 ```
 
+* Append location of the ```world``` file to the current value of ```GZ_SIM_RESOURCE_PATH``` env variable
+
 ```bash
-source ~/ubuntu22_jazzy_ws/install/setup.bash
-source ~/gazebo_harmonic_ws/install/setup.bash
-source ~/moveit2_jazzy_ws/install/setup.bash
-source ~/clearpath_simulator_harmonic_ws/install/setup.bash
 export GZ_VERSION=harmonic 
+export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic_ws/install/clearpath_gz/share/clearpath_gz/worlds
+```
+
+* Simulate a A200 Husky on a blank world ```ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml```
+
+
+
+```bash
 ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
 ```
 
-Test stuff
-
-```bash
-colcon build --symlink-install --packages-select cpr_empty_gz
-source ./install/setup.bash
-```
 
 
 ```bash
