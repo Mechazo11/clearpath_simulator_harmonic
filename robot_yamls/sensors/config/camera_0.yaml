@@ -1,0 +1,15 @@
+- ros_topic_name: camera_0/color/camera_info
+  gz_topic_name: /a200_0000/sensors/camera_0/camera_info
+  ros_type_name: sensor_msgs/msg/CameraInfo
+  gz_type_name: gz.msgs.CameraInfo
+  direction: GZ_TO_ROS
+- ros_topic_name: camera_0/points
+  gz_topic_name: /a200_0000/sensors/camera_0/points
+  ros_type_name: sensor_msgs/msg/PointCloud2
+  gz_type_name: gz.msgs.PointCloudPacked
+  direction: GZ_TO_ROS
+- ros_topic_name: camera_0/depth/camera_info
+  gz_topic_name: /a200_0000/sensors/camera_0/camera_info
+  ros_type_name: sensor_msgs/msg/CameraInfo
+  gz_type_name: gz.msgs.CameraInfo
+  direction: GZ_TO_ROS

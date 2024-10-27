@@ -19,6 +19,16 @@ A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_
    * clearpath_simulation: https://github.com/Mechazo11/clearpath_simulator_harmonic 
    * clearpath_generator_common: **TODO**
 
+* In a number of packages like the ```clearpath_harmonic```, ```clearpath_generator_common```, the last line of the file's BSD license had the following statement 
+
+```text
+Redistribution and use in source and binary forms, with or without
+modification, is not permitted without the express permission
+of Clearpath Robotics.
+```
+which I find to be in contradiction with the BSD-3 licensse that was used with the robot. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
+
+
 ## Useful Resources
 
 * [Migration from Gazebo Classic: SDF](https://gazebosim.org/api/sim/8/migrationsdf.html)
@@ -91,6 +101,12 @@ export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic
 
 * Simulate a A200 Husky on a blank world ```ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml```
 
+---
+
+### TODO
+
+* [ ] Add a command that creates a folder uniquely named as the custom yaml folder's name
+instead of ***robot_yamls***. 
 
 
 ```bash
