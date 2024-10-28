@@ -18,6 +18,8 @@ A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_
 * List of packages that were modified / needs to use my fork
    * clearpath_simulation: https://github.com/Mechazo11/clearpath_simulator_harmonic 
    * clearpath_generator_common: **TODO**
+   * realsense2_description
+   * realsense_gazebo_plugin
 
 * In a number of packages like the ```clearpath_harmonic```, ```clearpath_generator_common```, the last line of the file's BSD license had the following statement 
 
@@ -26,11 +28,13 @@ Redistribution and use in source and binary forms, with or without
 modification, is not permitted without the express permission
 of Clearpath Robotics.
 ```
-which I find to be in contradiction with the BSD-3 licensse that was used with the robot. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
+
+* In my opinion, I find this line to be in contradiction with the BSD-3 licensse that was used with the robot. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
 
 
 ## Useful Resources
 
+* [Simulate](https://docs.clearpathrobotics.com/docs/ros/tutorials/simulator/simulate/)
 * [Migration from Gazebo Classic: SDF](https://gazebosim.org/api/sim/8/migrationsdf.html)
 * [ROS 2 and Gazebo Integration Best Practices](https://vimeo.com/showcase/9954564/video/767127300)
 * [Spherical Coordinates](https://gazebosim.org/api/sim/8/spherical_coordinates.html)
@@ -46,7 +50,6 @@ which I find to be in contradiction with the BSD-3 licensse that was used with t
 echo $PATH # check /opt/ros/humble is included in the PATH variable
 export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/opt/ros/humble" | tr '\n' ':' | sed 's/:$//')
 ```
-
 
 * **WARNING!!** in the event the above mehod doesn't work, the easiest thing to do is to remove ROS 2 Humble binaries from **system-level** using ```sudo apt remove ros-humble*```. Please note, if you need to use ROS 2 Humble again, you would need to reinstall the binaries or build ROS 2 humble from source.
 
@@ -99,7 +102,20 @@ export GZ_VERSION=harmonic
 export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic_ws/install/clearpath_gz/share/clearpath_gz/worlds
 ```
 
-* Simulate a A200 Husky on a blank world ```ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml```
+* Simulate a A200 Husky on a blank world, you should see the following
+
+```bash
+ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
+```
+
+* Drive the simulated robot around
+
+
+* Simulate a A200 Husky in the warehouse world: **TODO**
+
+```bash
+ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
+```
 
 ---
 
@@ -108,32 +124,4 @@ export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic
 * [ ] Add a command that creates a folder uniquely named as the custom yaml folder's name
 instead of ***robot_yamls***. 
 
-
-```bash
-ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
-```
-
-
-
-```bash
-CMake Error at /home/tigerwife/mppi_rose25_ws/install/rosidl_cmake/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:178 (message):
-  Unable to generate service interface for 'srv/ConfigureMcu.srv'.  In order
-  to generate service interfaces you must add a depend tag for 'service_msgs'
-  in your package.xml.
-Call Stack (most recent call first):
-  CMakeLists.txt:18 (rosidl_generate_interfaces)
-```
-
-* same error for ros2_control
-
-```bash
-
---- stderr: controller_manager_msgs                                                                            
-CMake Error at /home/icore/mppi_rose25_ws/install/rosidl_cmake/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:178 (message):
-  Unable to generate service interface for 'srv/ConfigureController.srv'.  In
-  order to generate service interfaces you must add a depend tag for
-  'service_msgs' in your package.xml.
-Call Stack (most recent call first):
-  CMakeLists.txt:32 (rosidl_generate_interfaces)
-
-```
+```colcon build --packages-select realsense_gazebo_plugin```
