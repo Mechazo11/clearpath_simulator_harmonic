@@ -40,21 +40,21 @@ mounts:
     xyz: [0.0, 0.0, -0.021]
     rpy: [3.1415, 0.0, 0.0]
     angle: 0.0
-sensors:
-  camera:
-  - model: intel_realsense
-    urdf_enabled: true
-    launch_enabled: true
-    parent: fath_pivot_0_mount
-    xyz: [0.0, 0.0, 0.0]
-    rpy: [0.0, 0.0, 0.0]
-    ros_parameters:
-      camera:
-        camera_name: camera_0
-        device_type: d435
-        serial_no: '0'
-        enable_color: true
-        rgb_camera.profile: 640,480,30
-        enable_depth: true
-        depth_module.profile: 640,480,30
-        pointcloud.enable: true
+# sensors:
+#   camera:
+#   - model: intel_realsense
+#     urdf_enabled: true
+#     launch_enabled: true
+#     parent: fath_pivot_0_mount
+#     xyz: [0.0, 0.0, 0.0]
+#     rpy: [0.0, 0.0, 0.0]
+#     ros_parameters:
+#       camera:
+#         camera_name: camera_0
+#         device_type: d435
+#         serial_no: '0'
+#         enable_color: true
+#         rgb_camera.profile: 640,480,30
+#         enable_depth: true
+#         depth_module.profile: 640,480,30
+#         pointcloud.enable: true
