@@ -1,8 +1,8 @@
-![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
 
 # Clearpath Simulator for Gazebo Harmonic
 
-A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages. Clearpath uses a **single yaml** file to customize its robots. More details here https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/
+A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2 Jazzy packages. Clearpath uses a **single yaml** file to customize its robots. More details here https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/. I have opted to use the BSD-3 license, the same as that of ```jazzy``` branch from [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator/tree/jazzy)
 
 ## Compatibility
 
@@ -29,7 +29,7 @@ modification, is not permitted without the express permission
 of Clearpath Robotics.
 ```
 
-* In my opinion, I find this line to be in contradiction with the BSD-3 licensse that was used with the robot. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
+* In my opinion, I find this line to be in contradiction with the BSD-3 license that was used with the simulator. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
 
 
 ## Useful Resources
@@ -89,10 +89,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 * Test launch: In a new terminal, source all workspaces in the following sequence
 
 ```bash
-source ~/ubuntu22_jazzy_ws/install/setup.bash
-source ~/gazebo_harmonic_ws/install/setup.bash
-source ~/moveit2_jazzy_ws/install/setup.bash
-source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+source ./install/setup.bash
 ```
 
 * Append location of the ```world``` file to the current value of ```GZ_SIM_RESOURCE_PATH``` env variable
