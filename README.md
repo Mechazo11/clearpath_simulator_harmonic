@@ -59,7 +59,7 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/opt/ros/humble" | tr '\n' ':'
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt-get install python3-dev libyaml-cpp-dev
+sudo apt-get install python3-dev python3-tk libyaml-cpp-dev
 pip3 install numpy catkin_pkg empy lark
 ```
 
@@ -87,13 +87,13 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```
 
 
-* Test launch: In a new terminal, source all workspaces in the following sequence
+* Verify installation: In a new terminal, source all workspaces in the following sequence
 
 ```bash
-source ~/ubuntu22_jazzy_ws/install/setup.bash
+source source~/ubuntu22_jazzy_ws/install/setup.bash
 source ~/gazebo_harmonic_ws/install/setup.bash
 source ~/moveit2_jazzy_ws/install/setup.bash
-source ./clearpath_simulator_harmonic_ws/setup.bash
+source ~/clearpath_simulator_harmonic_ws/install/setup.bash
 ```
 
 * Append location of the ```world``` file to the current value of ```GZ_SIM_RESOURCE_PATH``` env variable
@@ -109,10 +109,55 @@ export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic
 ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
 ```
 
-* Drive the simulated robot around
+## Install and verify a gamepad [OPTIONAL]
+
+The following instructions are valid for a Xbox One game controller. For PS4/PS5 or wired controllers, please look for them online.
+
+* Ensure ```dkms```, ```bluez``` and ```xpadneo``` drivers are installed. Bu default ```dkms``` and ```linux headers``` will be installed in Ubuntu 22.04. Install ```bluez```: ```sudo apt-get install bluez```
+
+* Install ```xpadneo```
+
+```bash
+cd ~Downloads/
+git clone https://github.com/atar-axis/xpadneo.git
+cd ~xpandneo/
+sudo ./install.sh
+```
+
+* Pair a Xbox controller, follow the steps shown below
+
+<img src="docs/gamepad_connection.png" alt="alt text" style="height:500px; width:auto; object-fit: cover;">
+
+* Clone ```joy_tester``` library and build it
+
+```bash
+cd ~/clearpath_simulator_harmonic_ws/src
+git clone https://github.com/joshnewans/joy_tester.git
+cd ..
+colcon build --packages-select joy_tester
+source ./install/setup.bash
+```
+
+* Then launch the ```joy_tester``` package to test if all the buttons are working properly.
+
+  * In one terminal, run the teleop_twist_joy
+  ```bash
+  ros2 launch teleop_twist_joy teleop-launch.py joy_config:='xbox'
+  ```
+
+  * In the other terminal run the ```test_joy```
+  ```bash
+  source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+  ros2 run joy_tester test_joy
+  ```
+
+  * If successfull you should see something like the following
+  <img src="docs/joy_test.png" alt="alt text" style="height:500px; width:auto; object-fit: cover;">
 
 
-* Simulate a A200 Husky in the ```warehouse_cpr``` world:
+**TODO** based on this https://github.com/ros2/teleop_twist_joy/blob/rolling/launch/teleop-launch.py, add the teleop_twist_joy
+
+* Launch the ```warehouse_cpr``` world that brings in a A200 Husky robot
 
 ```bash
 ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
@@ -122,7 +167,16 @@ ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_samp
 
 ### TODO
 
+* [x] Fix the ```warehouse``` world, ensure husky robot simulates correctly
+
+* [ ] Write instructions and test driving robot around with a gamepad / rqt_joystick
+
 * [ ] Add a command that creates a folder uniquely named as the custom yaml folder's name
 instead of ***robot_yamls***. 
 
-```colcon build --packages-select realsense_gazebo_plugin```
+### Useful resources
+
+* teleop_twist_joy: https://github.com/ros2/teleop_twist_joy
+* Teleo with a joystick: https://articulatedrobotics.xyz/tutorials/mobile-robot/applications/teleop/
+* teleop_twist_joy: https://github.com/ros2/teleop_twist_joy
+* On using Substitutions in ROS 2 launch files: https://daobook.github.io/ros2-docs/xin/Tutorials/Launch-Files/Using-Substitutions.html
