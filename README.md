@@ -59,7 +59,8 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/opt/ros/humble" | tr '\n' ':'
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt-get install libyaml-cpp-dev
+sudo apt-get install python3-dev libyaml-cpp-dev
+pip3 install numpy catkin_pkg empy lark
 ```
 
 * Build the three workspaces shown below. Make sure they are done exactly in the sequence shown belo
@@ -89,7 +90,10 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 * Test launch: In a new terminal, source all workspaces in the following sequence
 
 ```bash
-source ./install/setup.bash
+source ~/ubuntu22_jazzy_ws/install/setup.bash
+source ~/gazebo_harmonic_ws/install/setup.bash
+source ~/moveit2_jazzy_ws/install/setup.bash
+source ./clearpath_simulator_harmonic_ws/setup.bash
 ```
 
 * Append location of the ```world``` file to the current value of ```GZ_SIM_RESOURCE_PATH``` env variable
@@ -108,7 +112,7 @@ ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.ya
 * Drive the simulated robot around
 
 
-* Simulate a A200 Husky in the warehouse world: **TODO**
+* Simulate a A200 Husky in the ```warehouse_cpr``` world:
 
 ```bash
 ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
