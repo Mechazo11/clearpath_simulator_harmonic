@@ -9,8 +9,8 @@ repositories:
     version: harmonic-dev
   clearpathrobotics/clearpath_config:
     type: git
-    url: https://github.com/clearpathrobotics/clearpath_config.git
-    version: main
+    url: https://github.com/Mechazo11/clearpath_config.git
+    version: jazzy-fix
   clearpathrobotics/clearpath_msgs:
     type: git
     url: https://github.com/Mechazo11/clearpath_msgs.git # My fork
