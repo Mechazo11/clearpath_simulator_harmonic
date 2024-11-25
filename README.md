@@ -226,18 +226,25 @@ instead of ***robot_yamls***.
 
 ### Useful resources
 
+Collection of some random helpful resources
+
 * teleop_twist_joy: https://github.com/ros2/teleop_twist_joy
 * Teleo with a joystick: https://articulatedrobotics.xyz/tutorials/mobile-robot/applications/teleop/
 * teleop_twist_joy: https://github.com/ros2/teleop_twist_joy
 * On using Substitutions in ROS 2 launch files: https://daobook.github.io/ros2-docs/xin/Tutorials/Launch-Files/Using-Substitutions.html
+* Pose publisher demo: https://github.com/gazebosim/gz-sim/blob/gz-sim8/examples/worlds/pose_publisher.sdf
+* gazebo_ros2_control: https://control.ros.org/rolling/doc/gazebo_ros2_control/doc/index.html
 
+* RESUME FROM HERE
 
 * Delete later
 ```bash
-[teleop_node-12] [INFO] [1732488702.841980226] [TeleopTwistJoy]: Teleop enable button 4.
-[teleop_node-12] [INFO] [1732488702.842046612] [TeleopTwistJoy]: Turbo on button 5.
-[teleop_node-12] [INFO] [1732488702.842063444] [TeleopTwistJoy]: Linear axis x on 1 at scale 0.400000.
-[teleop_node-12] [INFO] [1732488702.842072300] [TeleopTwistJoy]: Turbo for linear axis x is scale 1.000000.
-[teleop_node-12] [INFO] [1732488702.842079945] [TeleopTwistJoy]: Angular axis yaw on 0 at scale 0.600000.
-[teleop_node-12] [INFO] [1732488702.842086287] [TeleopTwistJoy]: Turbo for angular axis yaw is scale 1.200000.
+[robot_state_publisher-7] [INFO] [1732507921.814215597] [a200_0000.robot_state_publisher]: Robot initialized
+[joy_linux_node-13] [WARN] [1732507921.821582804] [a200_0000.joy_node]: Couldn't open joystick force feedback: Bad file descriptor
+[joy_linux_node-13] [INFO] [1732507921.821694574] [a200_0000.joy_node]: Opened joystick: /dev/input/xbox. deadzone_: 0.100000.
+[create-17] [INFO] [1732507921.826351616] [a200_0000.ros_gz_sim]: Requesting list of world names.
+[parameter_bridge-16] [INFO] [1732507921.856007886] [a200_0000.odom_base_tf_bridge]: Creating GZ->ROS Bridge: [/model/a200_0000/robot/tf (ignition.msgs.Pose_V) -> /model/a200_0000/robot/tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[parameter_bridge-15] [INFO] [1732507921.862295720] [a200_0000.cmd_vel_bridge]: Creating GZ->ROS Bridge: [a200_0000/cmd_vel (ignition.msgs.Twist) -> a200_0000/cmd_vel (geometry_msgs/msg/Twist)] (Lazy 0)
+[parameter_bridge-15] [INFO] [1732507921.864849810] [a200_0000.cmd_vel_bridge]: Creating ROS->GZ Bridge: [/model/a200_0000/robot/cmd_vel (geometry_msgs/msg/Twist) -> /model/a200_0000/robot/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[ERROR] [twist_mux-12]: process has died [pid 348343, exit code -6, cmd '/home/tigerwife/ubuntu22_jazzy_ws/install/twist_mux/lib/twist_mux/twist_mux --ros-args -r __ns:=/a200_0000 --params-file /home/tigerwife/clearpath_simulator_harmonic_ws/robot_yamls/platform/config/twist_mux.yaml --params-file /tmp/launch_params_wh49s1fv -r /tf_static:=tf_static -r /diagnostics:=diagnostics -r /tf:=tf -r cmd_vel_out:=platform/cmd_vel_unstamped'].
 ```
