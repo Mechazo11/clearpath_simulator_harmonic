@@ -31,6 +31,7 @@ of Clearpath Robotics.
 
 * In my opinion, I find this line to be in contradiction with the BSD-3 license that was used with the simulator. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
 
+* To find out where `ros2_control`, `gazebo` plugins and `ros_gz_bridge` elements of A200 Husky robots are defined, start looking into ```clearpath_common/clearpath_platform_description/urdf/a200```. The same is true for the other supported robots
 
 ## Useful Resources
 
@@ -152,7 +153,13 @@ jstest /dev/input/js2
 * Now create a symbolic link between this node and ```/dev/input/xbox``` and create udev rule
 
   * Create symbolic links and ```udev``` rule: ```sudo ln -s /dev/input/js2 /dev/input/xbox```
-  * Identify unique properties: ```udevadm info -a -n /dev/input/js2 | grep -E 'ATTRS{idVendor}|ATTRS{idProduct}|ATTRS{name}'```. An **example** is shown below, DO NOT COPY THESE
+  * Identify unique properties: 
+  
+  ```bash
+  udevadm info -a -n /dev/input/js2 | grep -E 'ATTRS{idVendor}|ATTRS{idProduct}|ATTRS{name}'
+  ```.
+  
+  An **example** is shown below, DO NOT COPY THESE
 
   ```bash
     ATTRS{name}=="Xbox Wireless Controller"
@@ -164,8 +171,13 @@ jstest /dev/input/js2
     ATTRS{idVendor}=="1d6b"
   ```
 
-  * Create udev rule file: ```sudo nano /etc/udev/rules.d/99-xbox-controller.rules``` and copy these attributes
-  ```SUBSYSTEM=="input", ATTRS{idVendor}=="YOUR_VENDOR_ID", ATTRS{idProduct}=="YOUR_PRODUCT_ID", SYMLINK+="input/xbox"```. Make sure to change with actual values
+  * Create udev rule file: ```sudo nano /etc/udev/rules.d/99-xbox-controller.rules``` and copy these attributes (after filling them out wiht idVendor and idProduct unique to your controller)
+
+  ```bash
+  SUBSYSTEM=="input", KERNEL=="js[0-9]*", ATTRS{idVendor}=="05e3", ATTRS{idProduct}=="0002", SYMLINK+="input/xbox"
+  ```
+  
+  Make sure to change with actual values
   * Reload Udev rules and trigger
 
   ```bash
@@ -176,7 +188,7 @@ jstest /dev/input/js2
   * Verify simlink: ```ls -l /dev/input/xbox``` you should see something like this
   <img src="docs/symlink.png" alt="alt text" style="height:50px; width:auto; object-fit: cover;">
 
-## Launch simulations
+## Preparations before launch
 
 * Verify installation: In a new terminal, source all workspaces in the following sequence
 
@@ -194,7 +206,16 @@ export GZ_VERSION=harmonic
 export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic_ws/install/clearpath_gz/share/clearpath_gz/worlds
 ```
 
-* Simulate a A200 Husky on ```empty_cpr``` world.
+* [OPTIONAL IF YOU HAD REBOOTED THE SYSTEM] Recreate symlink and reload udev rules. Do the following
+
+```bash
+sudo ln -s /dev/input/js2 /dev/input/xbox
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+ls -l /dev/input/xbox
+```
+
+## Launch simulation
 
 ```bash
 ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
@@ -233,18 +254,6 @@ Collection of some random helpful resources
 * teleop_twist_joy: https://github.com/ros2/teleop_twist_joy
 * On using Substitutions in ROS 2 launch files: https://daobook.github.io/ros2-docs/xin/Tutorials/Launch-Files/Using-Substitutions.html
 * Pose publisher demo: https://github.com/gazebosim/gz-sim/blob/gz-sim8/examples/worlds/pose_publisher.sdf
-* gazebo_ros2_control: https://control.ros.org/rolling/doc/gazebo_ros2_control/doc/index.html
-
-* RESUME FROM HERE
-
-* Delete later
-```bash
-[robot_state_publisher-7] [INFO] [1732507921.814215597] [a200_0000.robot_state_publisher]: Robot initialized
-[joy_linux_node-13] [WARN] [1732507921.821582804] [a200_0000.joy_node]: Couldn't open joystick force feedback: Bad file descriptor
-[joy_linux_node-13] [INFO] [1732507921.821694574] [a200_0000.joy_node]: Opened joystick: /dev/input/xbox. deadzone_: 0.100000.
-[create-17] [INFO] [1732507921.826351616] [a200_0000.ros_gz_sim]: Requesting list of world names.
-[parameter_bridge-16] [INFO] [1732507921.856007886] [a200_0000.odom_base_tf_bridge]: Creating GZ->ROS Bridge: [/model/a200_0000/robot/tf (ignition.msgs.Pose_V) -> /model/a200_0000/robot/tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
-[parameter_bridge-15] [INFO] [1732507921.862295720] [a200_0000.cmd_vel_bridge]: Creating GZ->ROS Bridge: [a200_0000/cmd_vel (ignition.msgs.Twist) -> a200_0000/cmd_vel (geometry_msgs/msg/Twist)] (Lazy 0)
-[parameter_bridge-15] [INFO] [1732507921.864849810] [a200_0000.cmd_vel_bridge]: Creating ROS->GZ Bridge: [/model/a200_0000/robot/cmd_vel (geometry_msgs/msg/Twist) -> /model/a200_0000/robot/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
-[ERROR] [twist_mux-12]: process has died [pid 348343, exit code -6, cmd '/home/tigerwife/ubuntu22_jazzy_ws/install/twist_mux/lib/twist_mux/twist_mux --ros-args -r __ns:=/a200_0000 --params-file /home/tigerwife/clearpath_simulator_harmonic_ws/robot_yamls/platform/config/twist_mux.yaml --params-file /tmp/launch_params_wh49s1fv -r /tf_static:=tf_static -r /diagnostics:=diagnostics -r /tf:=tf -r cmd_vel_out:=platform/cmd_vel_unstamped'].
-```
+* Documentations on using gazebo_ros2_control: https://control.ros.org/rolling/doc/gazebo_ros2_control/doc/index.html
+* ROS 2 Gazebo tutorial robot simulation with `ros2_control`: https://www.youtube.com/watch?v=PM_1Nb9u-N0
+* An excellent example for correctly defining `ros2_control` plugin names to connect with Gazebo Harmonic: https://www.youtube.com/watch?v=u54WAlAewMU
