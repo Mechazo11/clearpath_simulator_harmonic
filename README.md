@@ -80,18 +80,18 @@ pip3 install numpy catkin_pkg empy lark jinja2 typeguard pyyaml
   
   * Build this workspace using the following steps
 
-  ```bash
-  cd ~
-  git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
-  cd clearpath_simulator_harmonic_ws/
-  mkdir src
-  vcs import src < clearpath_sim.repos --recursive
-  rosdep install -r --from-paths src --rosdistro jazzy -i -y
-  source ~/ubuntu22_jazzy_ws/install/setup.bash
-  source ~/gazebo_harmonic_ws/install/setup.bash
-  source ~/moveit2_jazzy_ws/install/setup.bash
-  colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
-  ```
+```bash
+cd ~
+git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
+cd clearpath_simulator_harmonic_ws/
+mkdir src
+vcs import src < clearpath_sim.repos --recursive
+rosdep install -r --from-paths src --rosdistro jazzy -i -y
+source ~/ubuntu22_jazzy_ws/install/setup.bash
+source ~/gazebo_harmonic_ws/install/setup.bash
+source ~/moveit2_jazzy_ws/install/setup.bash
+colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
+```
 
 ## Install and verify a gamepad [OPTIONAL]
 
@@ -232,6 +232,10 @@ ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.ya
 ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml
 ```
 
+* Fixing controller_manager crashing gazebo
+
+ros2 launch gz_ros2_control_demos cart_example_position.launch.py
+
 ---
 
 ### Future TODO
@@ -239,6 +243,8 @@ ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_samp
 * [x] Fix the ```warehouse``` world, ensure husky robot simulates correctly
 
 * [x] Write instructions for installing and test driving robot around with a gamepad / rqt_joystick
+
+* [ ] Make sure gazebo_ros2_control_demos works correctly
 
 * [ ] Add a command that creates a folder uniquely named as the custom yaml folder's name
 instead of ***robot_yamls***. 
