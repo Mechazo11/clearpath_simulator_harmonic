@@ -15,10 +15,10 @@ A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_
 
 
 * List of packages that were modified / needs to use my fork
-   * clearpath_simulation: https://github.com/Mechazo11/clearpath_simulator_harmonic 
-   * clearpath_generator_common
-   * clearpath_gz
-   * clearpath_config: This package in particular has significant changes, one major being addition of the Xbox One/360 controller support
+  * clearpath_simulation: https://github.com/Mechazo11/clearpath_simulator_harmonic 
+  * clearpath_generator_common
+  * clearpath_gz: A new node file was added that take TwsitStamped message from a joystick node and transfers it to ```platform_velocity_controller/cmd_vel``` topic. Inspite of my many hours of attempt, I was not able to modify ```clearpath_common``` package to achieve this desired effect.
+  * clearpath_config: This package in particular has significant changes, one major being addition of the Xbox One/360 controller support
 
 
 * In a number of packages like the ```clearpath_harmonic```, ```clearpath_generator_common```, the last line of the file's BSD license had the following statement 
@@ -120,7 +120,7 @@ sudo ./install.sh
 cd ~/clearpath_simulator_harmonic_ws/src
 git clone https://github.com/joshnewans/joy_tester.git
 cd ..
-colcon build --packages-select joy_tester
+colcon build --symlink-install --packages-select joy_tester
 source ./install/setup.bash
 ```
 
