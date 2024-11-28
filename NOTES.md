@@ -2,6 +2,13 @@
 
 This markdown keeps all my notes for the RoSE 25 paper which is the final project for EE 7500 MPC class.
 
+
+## Basics of Gazebo
+
+* To list all published topic ```gz topic -l```
+* To echo a gz topic: ```gz topic -e --topic  /model/a200_0000/robot/cmd_vel```
+
+
 ## Basics of MPPI
 
 # Project TODO

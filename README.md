@@ -41,6 +41,8 @@ of Clearpath Robotics.
 * [Spherical Coordinates](https://gazebosim.org/api/sim/8/spherical_coordinates.html)
 * [Finding resources](https://gazebosim.org/api/sim/8/resources.html)
 * [GZ_SIM_RESOURCE_PATH](https://robotics.stackexchange.com/questions/108511/what-should-gz-sim-resource-path-be-pointing-to)
+* [ros2_control_demos](https://github.com/ros-controls/ros2_control_demos)
+* [Simulation of a 4WS Robot Using ROS2 Control and Gazebo](https://www.youtube.com/watch?v=VX53gAXafUA): This example moved a 4W drive robot using ros2_control
 * Joystick nodes are launched from the ```clearpath_common/clearpath_control/teleop_joy.launch.py``` file
 
 ## Preamble
