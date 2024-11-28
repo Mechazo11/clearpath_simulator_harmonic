@@ -223,6 +223,14 @@ ls -l /dev/input/xbox
 ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
 ```
 
+* Test robot's movement with a TwistStamped message
+
+```bash
+ros2 topic pub /a200_0000/platform_velocity_controller/cmd_vel geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: 'base_link'}, twist: {linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}}"
+```
+
+* If the robot moves, then all controller configurations have been setup correctly, now we can use a gamepad to control the robot
+
 * Control the robot's movement
   * Press and Hold ```LB``` to enable teleop
   * Press and Hold ```RB``` to enable faster movement
@@ -265,3 +273,33 @@ Collection of some random helpful resources
 * Documentations on using gazebo_ros2_control: https://control.ros.org/rolling/doc/gazebo_ros2_control/doc/index.html
 * ROS 2 Gazebo tutorial robot simulation with `ros2_control`: https://www.youtube.com/watch?v=PM_1Nb9u-N0
 * An excellent example for correctly defining `ros2_control` plugin names to connect with Gazebo Harmonic: https://www.youtube.com/watch?v=u54WAlAewMU
+
+
+---
+
+
+/a200_0000/cmd_vel
+/a200_0000/diagnostics
+/a200_0000/dynamic_joint_states
+/a200_0000/joint_state_broadcaster/transition_event
+/a200_0000/joy_teleop/cmd_vel
+/a200_0000/joy_teleop/joy
+/a200_0000/joy_teleop/joy/set_feedback
+/a200_0000/platform/cmd_vel_unstamped
+/a200_0000/platform/emergency_stop
+/a200_0000/platform/joint_states
+/a200_0000/platform/odom
+/a200_0000/platform/odom/filtered
+/a200_0000/platform_velocity_controller/cmd_vel
+/a200_0000/platform_velocity_controller/transition_event
+/a200_0000/rc_teleop/cmd_vel
+/a200_0000/robot_description
+/a200_0000/set_pose
+/a200_0000/tf
+/a200_0000/tf_static
+/a200_0000/twist_marker_server/cmd_vel
+/a200_0000/twist_marker_server/feedback
+/a200_0000/twist_marker_server/update
+/clock
+/parameter_events
+/rosout
