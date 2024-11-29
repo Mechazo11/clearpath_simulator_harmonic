@@ -248,16 +248,15 @@ ros2 launch gz_ros2_control_demos cart_example_position.launch.py
 
 ---
 
-### Future TODO
+### TODOs
 
 * [x] Fix the ```warehouse``` world, ensure husky robot simulates correctly
-
 * [x] Write instructions for installing and test driving robot around with a gamepad / rqt_joystick
+* [x]  Make sure gazebo_ros2_control_demos works correctly
 
-* [ ] Make sure gazebo_ros2_control_demos works correctly
+### Future TODOs
 
-* [ ] Add a command that creates a folder uniquely named as the custom yaml folder's name
-instead of ***robot_yamls***. 
+* [ ] Fix the teleop_joy node so that it would use ```TwistStamped``` instead of ```Twist``` message and alleviate the need for using the ```twist_mux_to_controller_node```.
 
 * [ ] In ROS 1, Clearpath Robotics introduced the ```cpr_gazebo``` repository which contained a good number of indoor and outdoor worlds. However that simulator is no longer maintained. I started a [port](https://github.com/Mechazo11/cpr_gazebo_ros2) for ROS 2 use but this requires a significant time and effort. If you are interested to help out and contribute, please don't hestiate to reaching out to me.
 
@@ -273,7 +272,7 @@ Collection of some random helpful resources
 * Documentations on using gazebo_ros2_control: https://control.ros.org/rolling/doc/gazebo_ros2_control/doc/index.html
 * ROS 2 Gazebo tutorial robot simulation with `ros2_control`: https://www.youtube.com/watch?v=PM_1Nb9u-N0
 * An excellent example for correctly defining `ros2_control` plugin names to connect with Gazebo Harmonic: https://www.youtube.com/watch?v=u54WAlAewMU
-
+* Convert Twist to TwistStamped message: https://github.com/joshnewans/twist_stamper
 
 ---
 
