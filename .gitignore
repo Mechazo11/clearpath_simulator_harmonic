@@ -8,3 +8,9 @@ src/**
 /build/
 /log/
 /install/
+
+# Ignore everything in robot_yaml/
+robot_yamls/**
+
+# Allow only .yaml files to be tracked
+!robot_yamls/**/*.yaml
