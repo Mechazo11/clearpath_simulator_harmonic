@@ -6,12 +6,11 @@
 
 This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) Version 0.34 from Clearpath Robotics that uses Gazebo 8 (Harmonic) as its primary simulator. Installation, how to use guide and some helpful resources are given below. 
 
-<p align="center">
-  <video width="900" height="auto" controls>
-    <source src="docs/version01.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</p>
+
+
+https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
+
+
 
 :hand: If you plan on using a Xbox One/Xbox 360 controller, check ```How to install and use Xbox One Controller``` under the **Useful Resources** section. 
 
