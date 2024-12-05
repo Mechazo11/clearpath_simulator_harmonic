@@ -1,55 +1,45 @@
 ![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
 
-# Clearpath Simulator for Gazebo Harmonic
+# Clearpath Simulator Workspace for ROS 2 Jazzy and Gazebo Harmonic
 
-A modified [Clearpath Simulator](https://github.com/clearpathrobotics/clearpath_simulator) from Clearpath Robotics, that uses ROS 2 Jazzy, Gazebo Harmonic and Moveit2, Nav2 [Jazzy compliant] packages. Clearpath used a **single yaml** file to define its robots. More details here https://docs.clearpathrobotics.com/docs/ros/config/yaml/overview/. I have opted to use the BSD-3 license, the same as that of ```jazzy``` branch from [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator/tree/jazzy).
+This ROS 2 Jazzy workspace is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) from Clearpath Robotics that uses Gazebo Harmonic instead of Ignition Fortress as its primarly simulation engine. 
 
-If you plan on using a Xbox/PS4/PS5 controller, check the **Useful Resources** section on how I installed and used the Xbox One controller. The following tutorial assumes you can send ```Twist``` commands either through a controller or from keyboard or using ```rqt_joystick```.
+Moveit2, and Nav2 packages  
+.
+**TODO** place video here
 
-### TODO before launch
+If you plan on using a Xbox/PS4/PS5 controller, check the **Useful Resources** section on how I installed and used the Xbox One controller. The following tutorial assumes you can send **TwistStamped** commands either through a controller or from keyboard or using ```rqt_joystick```.
 
-* [ ] Open an Issue to discuss what the last lines of license meant.
-* [ ] Publish repo in ROS Discourse and LinkedIn
-* [ ] Create a video of cpr robot moving in warehouse demo
-* [ ] Fix TF_OLD_Time issue
-* [ ] Add Velodyne Lidar and RGBD support
-* [x] Fix the ```warehouse``` world, ensure husky robot simulates correctly
-* [x] Write instructions for installing and test driving robot around with a gamepad / rqt_joystick
-* [x]  Make sure gazebo_ros2_control_demos works correctly
-* [x] Fix the teleop_joy node so that it would use ```TwistStamped``` instead of ```Twist``` message and alleviate the need for using the ```twist_mux_to_controller_node```.
+## Supported features
 
-## Future TODOs
+- [:white_check_mark:] Compatible with Gazebo Harmonic and ROS 2 Jazzy
+- [:white_check_mark:] Added support for 
 
-* [ ] Port a few of ```cpr_gazebo``` repository worlds. I started a [port](https://github.com/Mechazo11/cpr_gazebo_ros2) for ROS 2 use but this requires a significant time and effort. If you are interested to help out and contribute, please don't hestiate to reaching out to me.
-* [ ] Add links to other repositories that shows how to use Clearpath robots for autonomous driving using MPPI controllers (Nav 2 and MPP-Generic)
+## Dependencies
+
+This simulator depends on the following packages
+
+- Gazebo Harmonic
+- Moveit2 (Jazzy version)
+- Nav2 (Jazzy version)
+- 
+
 
 ## Compatibility
 
-* Ubuntu 22.04: Requires three workspaces in order ROS 2 Jazzy --> Gazebo Harmonic --> Moveit2, Nav2 --> this workspace
+* Ubuntu 22.04: Requires source built workspace see below
 * Ubuntu 24.04: **TODO** Requires testing
 
-## Major Changes
 
-* ```warehouse.sdf``` is now ```warehouse_cpr.sdf``` and is compatible with Gazebo Harmonic.
+### TODOs: Next release
 
-* List of packages that were modified / needs to use my fork
-  * clearpath_simulation: https://github.com/Mechazo11/clearpath_simulator_harmonic 
+* [ ] Fix TF_OLD_Time issue
+* [ ] Add Velodyne Lidar and RGBD sensor support
 
-  * clearpath_control: Modified `teleop_base.launch.py` to call my Twist to Twist Stamped message converter node. It appears most `ros2_controllers` now requires `TwistStamped` messages to work. Additionally ```a200/control.yaml``` has been modified to use the newer style of defining ```DiffDrive``` controller.
+## TODOs: Features
 
-  * clearpath_gz: A new cpp file was added that take ```Twsit``` message that comes out from the ```twist_mux``` server, converts it to ```TwistStamped``` message and then transfers it to ```platform_velocity_controller/cmd_vel``` topic.
-
-  * clearpath_config: This package in particular has significant changes, one major being addition of the Xbox One/360 controller support
-
-* In a number of packages such as ```clearpath_harmonic```, ```clearpath_generator_common```, the last line of the file's BSD license had the following statement 
-
-```text
-Redistribution and use in source and binary forms, with or without
-modification, is not permitted without the express permission of Clearpath Robotics.
-```
-
-* In my opinion, I find this line to be in contradiction with the BSD-3 license that was used with the simulator. The ```.py``` files where I have made the modifications to accept custom yaml file names, I have removed this last line. An issue discussing this matter with Clearpath robotics can be found here: [Issue #]()
-
+* [ ] Port a few of ```cpr_gazebo``` repository worlds. I started a [port](https://github.com/Mechazo11/cpr_gazebo_ros2) for ROS 2 use but this requires a significant time and effort. If you are interested to help out and contribute, please don't hestiate to reaching out to me.
+* [ ] Add a motion control demo using SLAM and NAV2's MPPI
 
 
 ## Preamble
@@ -166,6 +156,7 @@ ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_samp
 
 ## Websites and materials
 
+* Clearpath uses a **single yaml** file to define its robots. More details here https://docs. clearpathrobotics.com/docs/ros/config/yaml/overview/.
 * [Simulate](https://docs.clearpathrobotics.com/docs/ros/tutorials/simulator/simulate/)
 * [Migration from Gazebo Classic: SDF](https://gazebosim.org/api/sim/8/migrationsdf.html)
 * [ROS 2 and Gazebo Integration Best Practices](https://vimeo.com/showcase/9954564/video/767127300)
@@ -189,9 +180,9 @@ ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_samp
 * To list all published topic ```gz topic -l```
 * To echo a gz topic: ```gz topic -e --topic  /model/a200_0000/robot/cmd_vel```
 
-## Install and verify a gamepad [OPTIONAL]
+## How to install and use Xbox One Controller [OPTIONAL]
 
-The following instructions are valid for a Xbox One game controller. For PS4/PS5 or wired controllers, please look for them online.
+The following instructions are valid for a Xbox One game controller and Ubuntu 22.04 / 24/04. 
 
 * Ensure ```dkms```, ```bluez``` and ```xpadneo``` drivers are installed. Bu default ```dkms``` and ```linux headers``` will be installed in Ubuntu 22.04. Install ```bluez```: ```sudo apt-get install bluez```
 
