@@ -6,7 +6,12 @@
 
 This ROS 2 Jazzy workspace is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) from Clearpath Robotics that uses **Gazebo Harmonic** as its primarly simulation engine. 
 
-**TODO** place video here
+<p align="center">
+  <video width="700" height="auto" controls>
+    <source src="docs/version_0_1_video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
 
 :hand: If you plan on using a Xbox One/Xbox 360 controller, check ```How to install and use Xbox One Controller``` under the **Useful Resources** section. 
 
