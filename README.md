@@ -4,11 +4,11 @@
 
 **Version: 0.1**
 
-This ROS 2 Jazzy workspace is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) from Clearpath Robotics that uses **Gazebo Harmonic** as its primarly simulation engine. 
+This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) Version 0.34 from Clearpath Robotics that uses Gazebo 8 (Harmonic) as its primary simulator. Installation, how to use guide and some helpful resources are given below. 
 
 <p align="center">
-  <video width="700" height="auto" controls>
-    <source src="docs/version_0_1_video.mp4" type="video/mp4">
+  <video width="900" height="auto" controls>
+    <source src="docs/version01.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </p>
@@ -19,14 +19,14 @@ This ROS 2 Jazzy workspace is a modified version of [clearpath_simulator](https:
 
 :heavy_exclamation_mark: Please note all the original packages from clearpath_simulator v0.3 have been modified for ROS 2 Jazzy and Gazebo Harmonic compatiblity. Hence, only my forks of those packages is known to work at this time.
 
-## Features
+## Supported Features and Compatibility
 
 - :white_check_mark: Ubuntu 22.04 (via source build)
 - :white_large_square: Ubuntu 24.04 (not tested yet)
 - :white_check_mark: Compatible with Gazebo Harmonic and ROS 2 Jazzy
 - :white_check_mark: Xbox One S controller support
 - :white_check_mark: Automatic conversion between Twist and TwistStamped messages
-- :white_check_mark: Custom robot yaml name support in lieu of generic ```robot.yaml```.
+- :white_check_mark: Custom names for ```robot.yaml``` configuration scripts.
 - :white_large_square: Realsense2 RGB-D sensor
 - :white_large_square: 2D and 3D LiDAR sensor
 - :white_large_square: SLAM example to save a map
@@ -46,7 +46,9 @@ This simulator depends on the following packages
 - Nav2 (Jazzy version)
 - Packages defined in ```clearpath_sim.repos```
 
-### TODOs: Next release
+---
+
+## TODOs: Next release
 
 - Test in Ubuntu 24.04
 - Fix TF_OLD_Time issue
@@ -55,7 +57,7 @@ This simulator depends on the following packages
 
 ## Call for Contribution
 
-- ```cpr_gazebo``` contains a number of custom repository worlds from Clearpath Robotics. I started a [port](https://github.com/Mechazo11/cpr_gazebo_ros2) for ROS 2 use but this requires a significant time and effort. If you are interested to help out and contribute, please don't hestiate to reaching out to [me](mechazo11.github.io).
+- ```cpr_gazebo``` contains a number of custom repository worlds from Clearpath Robotics but modifying them to be compatible with Harmonic will take some time and effort. If you are interested to helping out with modifying these works and contributing to this project in general, please don't hestiate to reaching out to [me](mechazo11.github.io).
 
 ---
 
@@ -168,9 +170,11 @@ ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_samp
 
 ---
 
-# Useful Resources
+## Useful Resources
 
-## Websites and materials
+### Websites and materials
+<details>
+<summary>Click to expand</summary>
 
 - Clearpath uses a **single yaml** file to define its robots. More details here <https://docs>. clearpathrobotics.com/docs/ros/config/yaml/overview/.
 - [Simulate](https://docs.clearpathrobotics.com/docs/ros/tutorials/simulator/simulate/)
@@ -192,16 +196,32 @@ ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_samp
 - Convert Twist to TwistStamped message: <https://github.com/joshnewans/twist_stamper>
 - Complete list of Github markdown emoji support: <https://gist.github.com/rxaviers/7360908>
 
-## Basics of Gazebo topic CLI
+</details>
+
+---
+
+### Basics of Gazebo topic CLI
+<details>
+<summary>Click to expand</summary>
 
 - To list all published topic ```gz topic -l```
 - To echo a gz topic: ```gz topic -e --topic  /model/a200_0000/robot/cmd_vel```
 
-## Some notes on this software stack
+</details>
+
+---
+
+### Some notes on this software stack
+<details>
+<summary>Click to expand</summary>
 
 - Joystick nodes are launched from the ```clearpath_common/clearpath_control/teleop_joy.launch.py``` file
 
 - To find out where `ros2_control`, `gazebo` plugins and `ros_gz_bridge` elements of A200 Husky robots are defined, start looking into ```clearpath_common/clearpath_platform_description/urdf/a200```. The same is true for the other supported robots
+
+</details>
+
+---
 
 ## How to install and use Xbox One Controller [OPTIONAL]
 <details>
@@ -301,3 +321,5 @@ jstest /dev/input/js2
   - Verify simlink: ```ls -l /dev/input/xbox``` you should see something like this
   <img src="docs/symlink.png" alt="alt text" style="height:50px; width:auto; object-fit: cover;">
 </details>
+
+---
