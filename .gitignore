@@ -1,16 +1,12 @@
-# Ignore everything in src/
-src/**
-
-# Don't ignore the src/ directory itself and keep .gitkeep
-!src/
-!src/.gitkeep
-
 /build/
 /log/
 /install/
 
-# Ignore everything in robot_yaml/
-robot_yamls/**
+# Ignore everything in src/
+src/**
+!src/
+!src/.gitkeep
 
-# Allow only .yaml files to be tracked
+# Robot YAML handling
+robot_yamls/*
 !robot_yamls/**/*.yaml
