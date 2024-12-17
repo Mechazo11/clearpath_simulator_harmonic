@@ -10,4 +10,11 @@
 * `clearpath_config`: This package in particular has significant changes, one major being addition of the Xbox One/360 controller support
 * `clearpath_common`: A number of `.py` files that contained a contradictory licensing statement as discussed here Issue [#124](https://github.com/clearpathrobotics/clearpath_common/issues/124#issuecomment-2520703993) has been removed.
 
---
+---
+
+### Version 0.2
+
+* Added `CONTRIBUTION.md` file
+* **TODO** Add support for Realsense2 RGBD camera
+* **TODO** add support for multi-robot simulation
+
