@@ -7,7 +7,6 @@
 This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) Version 0.34 from Clearpath Robotics that uses Gazebo 8 (Harmonic) as its primary simulator. Installation, how to use guide and some helpful resources are given below. 
 
 
-
 https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
 
 
@@ -52,7 +51,8 @@ This simulator depends on the following packages
 ## TODOs: Next release
 
 - :white_check_mark: Test in Ubuntu 24.04
-- :white_large_square Add Realsense2 RGBD sensor support
+- :white_large_square Add `Contributions.md`
+- :white_large_square Add Realsense2 RGBD / RGBD sensor support
 - :white_large_square Add support for multi-robot simulation
 
 ## Call for Contribution

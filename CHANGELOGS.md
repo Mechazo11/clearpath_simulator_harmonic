@@ -14,7 +14,7 @@
 
 ### Version 0.2
 
-* Added `CONTRIBUTION.md` file
-* **TODO** Add support for Realsense2 RGBD camera
+* **TODO** Add `CONTRIBUTION.md` file
+* **TODO** Add support for Realsense2 RGBD / RGBD camera
 * **TODO** add support for multi-robot simulation
 
