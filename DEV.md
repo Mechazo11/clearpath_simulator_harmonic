@@ -10,6 +10,7 @@ Scratch book for developing new features into the simulator
 
 * Example of how to launch the rgbd camera: https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_sim_demos/launch/rgbd_camera.launch.py
 
+* Example of turtlebot3 waffle after modified for newer gazebo: https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf
 
 ```bash
 sudo apt update
@@ -36,10 +37,27 @@ git clone -b ros2 --single-branch https://github.com/ros-drivers/nmea_msgs.git
 git clone https://github.com/tilk/rtcm_msgs.git
 git clone -b ros2 --single-branch https://github.com/LORD-MicroStrain/microstrain_inertial.git
 git clone - b jazzy-devel --single-branch https://github.com/Mechazo11/ros2_asus_xtion.git
-
 ```
 
+```bash
+ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
+ros2 launch --debug clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
+```
+
+### Tracking the software stack of how sensors are added into urf.xacro
+
+clearpath_gz::robot_spwan.launch --> clearpath_generator_common::generate_description --> 
+clearpath_generator_common::description::generator.DescriptionGenerator -->
+
+**self.generate_sensors**
+  | -- self.clearpath_config.sensros.get_all_sensors() <-- clearpath_config::sensors.SensorConfig.get_all_sensors() 
+    | -- for each sensor in sensors
+      | -- sensor_description = clearpath_generator_common::sensor.SensorDescription(sensor)
+        | -- clearpath_config.sensors.types.cameras
+        
 
 ### TODOs
 
-* Upgrade [ros2_asus_xiton camera](https://github.com/Mechazo11/ros2_asus_xtion.git) to utilize gazebo harmonic
+* [x] Upgrade [ros2_asus_xiton camera](https://github.com/Mechazo11/ros2_asus_xtion.git) to utilize gazebo harmonic
+
+* [ ] Test launch and check for data from a virtual camera in Harmonic using the prebuilt launch files
