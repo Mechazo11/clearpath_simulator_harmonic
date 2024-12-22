@@ -2,6 +2,9 @@
 
 Scratch book for developing new features into the simulator
 
+- update asus xtion urdf.xacro to match the interl_realsense.urdf.xacro format.
+
+
 ### Realsense 2 RGBD plugin / RGBD camear plugin
 
 * An example of AMR using RGBD camera: https://github.com/IntelligentRoboticsLabs/kobuki
@@ -11,6 +14,8 @@ Scratch book for developing new features into the simulator
 * Example of how to launch the rgbd camera: https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_sim_demos/launch/rgbd_camera.launch.py
 
 * Example of turtlebot3 waffle after modified for newer gazebo: https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf
+
+* Gazebo ionic migration documentations: https://gazebosim.org/docs/latest/migration_from_ignition/
 
 ```bash
 sudo apt update
@@ -60,4 +65,3 @@ clearpath_generator_common::description::generator.DescriptionGenerator -->
 
 * [x] Upgrade [ros2_asus_xiton camera](https://github.com/Mechazo11/ros2_asus_xtion.git) to utilize gazebo harmonic
 
-* [ ] Test launch and check for data from a virtual camera in Harmonic using the prebuilt launch files

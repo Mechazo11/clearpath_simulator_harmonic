@@ -53,7 +53,7 @@ sensors:
     ros_parameters:
       camera:
         camera_name: camera_0
-        device_type: d435
+        device_type: simulated_camera
         serial_no: '0'
         enable_color: true
         rgb_camera.profile: 640,480,30

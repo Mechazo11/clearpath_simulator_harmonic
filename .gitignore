@@ -10,3 +10,5 @@ src/**
 # Robot YAML handling
 robot_yamls/*
 !robot_yamls/**/*.yaml
+
+.vscode/
