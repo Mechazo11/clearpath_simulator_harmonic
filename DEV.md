@@ -37,6 +37,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 ```bash
 cd ~/clearpath_simulator_harmonic/
 cd src/
+git clone -b rolling-devel --single-branch https://github.com/ros-visualization/rqt_image_view.git
 git clone -b ros2 --single-branch https://github.com/ros-drivers/openni2_camera.git
 git clone -b ros2 --single-branch https://github.com/ros-drivers/nmea_msgs.git
 git clone https://github.com/tilk/rtcm_msgs.git
@@ -47,6 +48,7 @@ git clone - b jazzy-devel --single-branch https://github.com/Mechazo11/ros2_asus
 ```bash
 ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
 ros2 launch --debug clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
+ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml world:=warehouse_cpr
 ```
 
 ### Tracking the software stack of how sensors are added into urf.xacro
@@ -65,3 +67,4 @@ clearpath_generator_common::description::generator.DescriptionGenerator -->
 
 * [x] Upgrade [ros2_asus_xiton camera](https://github.com/Mechazo11/ros2_asus_xtion.git) to utilize gazebo harmonic
 
+* [ ] Fix camera orientation and find out why depth images are not published in ros2 graph

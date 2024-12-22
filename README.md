@@ -347,6 +347,31 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
     - Verify simlink: ```ls -l /dev/input/xbox``` you should see something like this
     <img src="docs/symlink.png" alt="alt text" style="height:50px; width:auto; object-fit: cover;">
   </details>
+
+  ### If gzserver does not stop automatically after killing simulation
+  <details>
+  Originally discussed [here](https://github.com/ros-simulation/gazebo_ros_pkgs/issues/751). This leads to error messages stating 
+
+  ```bash
+  [spawner-15] [WARN] [1734830398.851778889] [a200_0000.spawner_platform_velocity_controller]: Controller already loaded, skipping load_controller
+  [spawner-15] [ERROR] [1734830398.854877834] [a200_0000.spawner_platform_velocity_controller]: Failed to configure controller
+  [spawner-14] [WARN] [1734830398.862552805] [a200_0000.spawner_joint_state_broadcaster]: Controller already loaded, skipping load_controller
+  [spawner-14] [ERROR] [1734830398.865012741] [a200_0000.spawner_joint_state_broadcaster]: Failed to configure controller
+  ```
+
+  Try the following commands
+  
+  ```bash
+  ps aux | grep gzserver 
+  pgrep gzserver
+  tigerwi+   <#PID>  0.0  0.0   9708  2560 pts/1    S+   19:17   0:00 grep --color=auto gzserver
+  kill -2 <#PID>
+  killall gzserver
+  killall -9 gzserver
+  ```
+  </details>
+
+
 </details>
 
 ---
