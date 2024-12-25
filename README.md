@@ -1,14 +1,12 @@
 ![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.2.0-006400.svg)
 
 # Clearpath Simulator in Gazebo Harmonic :fire:
-
-**Version: 0.1**
 
 This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) Version 0.34 from Clearpath Robotics that uses Gazebo 8 (Harmonic) as its primary simulator. Installation, how to use guide and some helpful resources are given below. 
 
 
 https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
-
 
 
 :hand: If you plan on using a Xbox One/Xbox 360 controller, check ```How to install and use Xbox One Controller``` under the **Useful Resources** section. 
@@ -20,16 +18,12 @@ https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
 ## Supported Features and Compatibility
 
 - :white_check_mark: Ubuntu 22.04 (via source build)
-- :white_large_square: Ubuntu 24.04 (not tested yet)
+- :white_check_mark: Ubuntu 24.04 (via debian packages)
 - :white_check_mark: Compatible with Gazebo Harmonic and ROS 2 Jazzy
 - :white_check_mark: Xbox One S controller support
 - :white_check_mark: Automatic conversion between Twist and TwistStamped messages
 - :white_check_mark: Custom names for ```robot.yaml``` configuration scripts.
-- :white_large_square: Realsense2 RGB-D sensor
-- :white_large_square: 2D and 3D LiDAR sensor
-- :white_large_square: SLAM example to save a map
-- :white_large_square: Nav2 MPPI controller example
-- :white_large_square: Multi-robot example
+- :white_check_mark: Asus Xtion RGB-D simulated sensor
 
 ## Supported robots
 
@@ -48,12 +42,24 @@ This simulator depends on the following packages
 
 ---
 
-## TODOs: Next release
+## TODOs: Next release v0.2
 
-- :white_check_mark: Test in Ubuntu 24.04
 - :white_large_square Add `Contributions.md`
-- :white_large_square Add Realsense2 RGBD / RGBD sensor support
+- :white_check_mark: Add RGBD sensor support, ensure both image and depth topics are usable
+- :white_large_square Rviz visualization
+- :white_large_square Add the outdoor world
+
+## TODOs: Upcoming release v0.3
+
 - :white_large_square Add support for multi-robot simulation
+
+## Future features
+
+- :white_large_square: 2D LiDAR Sensor
+- :white_large_square: 3D LiDAR Sensor
+- :white_large_square: SLAM example to save a map
+- :white_large_square: Nav2 MPPI controller example
+- :white_large_square: Multi-robot example
 
 ## Call for Contribution
 

@@ -15,6 +15,7 @@
 ### Version 0.2
 
 * **TODO** Add `CONTRIBUTION.md` file
-* **TODO** Add support for Realsense2 RGBD / RGBD camera
-* **TODO** add support for multi-robot simulation
+* Added Asus Xtion RGBD camera.
+* Created a heavily modified 
+* Added `outdoor.sdf` world
 

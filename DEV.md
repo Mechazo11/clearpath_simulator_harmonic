@@ -49,7 +49,12 @@ git clone - b jazzy-devel --single-branch https://github.com/Mechazo11/ros2_asus
 ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
 ros2 launch --debug clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
 ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml world:=warehouse_cpr
+
+ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml world:=outdoor
+
 ```
+
+* All model dae files found here: https://github.com/osrf/gazebo_models
 
 ### Tracking the software stack of how sensors are added into urf.xacro
 
