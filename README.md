@@ -47,7 +47,7 @@ This simulator depends on the following packages
 - :white_large_square Add `Contributions.md`
 - :white_check_mark: Add RGBD sensor support, ensure both image and depth topics are usable
 - :white_large_square Rviz visualization
-- :white_large_square Add the outdoor world
+- :white_large_square Add the `outdoor.sdf` world
 
 ## TODOs: Upcoming release v0.3
 
