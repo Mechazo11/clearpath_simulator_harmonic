@@ -1,5 +1,8 @@
 ![BSD 3-Clause License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
 ![Version](https://img.shields.io/badge/Version-0.2.0-006400.svg)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![ROS](https://img.shields.io/badge/ROS2-Jazzy-blue)
 
 # Clearpath Simulator in Gazebo Harmonic :fire:
 
