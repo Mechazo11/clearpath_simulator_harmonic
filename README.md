@@ -124,8 +124,8 @@ Build and install the following workspaces in sequence. Will take about ~1 hour 
 
 ```bash
 cd ~
-git clone https://github.com/Mechazo11/clearpath_simulator_harmonic_ws.git
-cd clearpath_simulator_harmonic_ws/
+git clone https://github.com/Mechazo11/clearpath_simulator_harmonic.git
+cd clearpath_simulator_harmonic/
 vcs import src < clearpath_sim.repos --recursive
 rosdep install -r --from-paths src --rosdistro jazzy -i -y
 source ~/ubuntu22_jazzy_ws/install/setup.bash
@@ -148,8 +148,8 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
   ```bash
   source ~/ubuntu22_jazzy_ws/install/setup.bash
   source ~/gazebo_harmonic_ws/install/setup.bash
-  source ~/moveit2_jazzy_ws/install/setup.bash
-  source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+  source ~/moveit2_nav2_jazzy_ws/install/setup.bash
+  source ~/clearpath_simulator_harmonic/install/setup.bash
   ```
   </details>
 
@@ -159,7 +159,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 
   ```bash
   source /opt/ros/jazzy/setup.bash
-  source ~/clearpath_simulator_harmonic_ws/install/setup.bash
+  source ~/clearpath_simulator_harmonic/install/setup.bash
   ```
   </details>
 
@@ -169,7 +169,7 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 
   ```bash
   export GZ_VERSION=harmonic 
-  export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic_ws/install/clearpath_gz/share/clearpath_gz/worlds
+  export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic/install/clearpath_gz/share/clearpath_gz/worlds
   ```
   </details>
 
