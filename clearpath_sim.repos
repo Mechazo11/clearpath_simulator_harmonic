@@ -19,9 +19,29 @@ repositories:
     type: git
     url: https://github.com/Mechazo11/puma_motor_driver.git
     version: jazzy
-  # mechazo11/velodyne_simulator:
-  #   type: git
-  #   url: https://github.com/Mechazo11/velodyne_simulator_ros2.git
-  #   version: dashing-devel
+  sensors/ros2_asus_xtion:
+    type: git
+    url: https://github.com/Mechazo11/ros2_asus_xtion.git
+    version: harmonic_devel
+  sensors/joy_tester:
+    type: git
+    url: https://github.com/joshnewans/joy_tester.git
+    version: main
+  ros_visualization/rqt_image_view:
+    type: git
+    url: https://github.com/ros-visualization/rqt_image_view.git
+    version: rolling-devel
+  sensors/microstrain_inertial:
+    type: git
+    url: https://github.com/LORD-MicroStrain/microstrain_inertial.git
+    version: ros2
+  ros-drivers/nmea_msgs:
+    type: git
+    url: https://github.com/ros-drivers/nmea_msgs.git
+    version: ros2
+  tilk/rtcm_msgs:
+    type: git
+    url: https://github.com/tilk/rtcm_msgs.git
+    version: master
 
   
