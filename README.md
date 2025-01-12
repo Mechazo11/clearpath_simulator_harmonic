@@ -166,16 +166,6 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
   ```
   </details>
 
-  ### Setup Environment variables
-  <details>
-  * Append location of the ```world``` file to the current value of ```GZ_SIM_RESOURCE_PATH``` env variable
-
-  ```bash
-  export GZ_VERSION=harmonic 
-  export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/clearpath_simulator_harmonic/install/clearpath_gz/share/clearpath_gz/worlds
-  ```
-  </details>
-
   ### Update udev rules [OPTIONAL]
   <details>
   * Recreate symlink and reload udev rules. This example is for xbox but the same rule applies for PS4 / PS5 controllers

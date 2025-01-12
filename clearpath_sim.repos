@@ -23,6 +23,10 @@ repositories:
     type: git
     url: https://github.com/Mechazo11/ros2_asus_xtion.git
     version: harmonic_devel
+  sensors/realsense2_gazebo:
+    type: git
+    url: https://github.com/Mechazo11/realsense2_gazebo.git
+    version: harmonic-devel
   sensors/joy_tester:
     type: git
     url: https://github.com/joshnewans/joy_tester.git
