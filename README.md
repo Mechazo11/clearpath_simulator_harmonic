@@ -18,7 +18,7 @@ https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
 
 :heavy_exclamation_mark: Please note all the original packages from clearpath_simulator v0.3 have been modified for ROS 2 Jazzy and Gazebo Harmonic compatiblity. Hence, only my forks of those packages is known to work at this time.
 
-:heavy_exclamation_mark: `clearpath_simulator` metapackage has been renamed to `clearpath_harmonic`. `clearpath_common`, `clearpath_config` and `clearpath_harmonic`, from Version 0.2 and onwards will use my own version number schema.
+:heavy_exclamation_mark: `clearpath_simulator` metapackage has been renamed to `clearpath_harmonic`. `clearpath_common`, `clearpath_config` and `clearpath_harmonic`, from Version 0.2 and onwards will use my own version number schema. Also the rolling branch for these packages will be named `harmonic-dev` with stable releases as `release` branch.
 
 ## Supported Features and Compatibility
 
