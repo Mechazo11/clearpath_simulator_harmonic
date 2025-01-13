@@ -20,13 +20,17 @@ https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
 
 ## Supported Features and Compatibility
 
-- :white_check_mark: Ubuntu 22.04 (via source build)
-- :white_check_mark: Ubuntu 24.04 (via debian packages)
+- :white_check_mark: Ubuntu 22.04 (via source build) and Ubuntu 24.04 (via debian packages)
 - :white_check_mark: Compatible with Gazebo Harmonic and ROS 2 Jazzy
 - :white_check_mark: Xbox One S controller support
 - :white_check_mark: Automatic conversion between Twist and TwistStamped messages
 - :white_check_mark: Custom names for ```robot.yaml``` configuration scripts.
-- :white_check_mark: Asus Xtion RGB-D simulated sensor
+- :white_check_mark: Asus Xtion **simulated** RGB-D camera
+- :white_check_mark: Intel Realsense **simulated** RGB-D camera
+
+## Unsupported Features
+
+- :x: PointCloud from RGBD cameras
 
 ## Supported robots
 
@@ -48,7 +52,7 @@ This simulator depends on the following packages
 ## TODOs: Next release v0.2
 
 - :white_large_square Add `Contributions.md`
-- :white_check_mark: Add RGBD sensor support, ensure both image and depth topics are usable
+- :white_check_mark: RGB-D sensor support.
 - :white_large_square Rviz visualization
 - :white_large_square Add the `outdoor.sdf` world
 
@@ -144,65 +148,66 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
 <details>
   <!-- <summary>Click to expand</summary> -->
 
-  ### Ubuntu 22.04 (Source build)
-  <details>
-  - In a new terminal, source all workspaces in the following sequence
+### Ubuntu 22.04 (Source build)
+<details>
+- In a new terminal, source all workspaces in the following sequence
 
-  ```bash
-  source ~/ubuntu22_jazzy_ws/install/setup.bash
-  source ~/gazebo_harmonic_ws/install/setup.bash
-  source ~/moveit2_nav2_jazzy_ws/install/setup.bash
-  source ~/clearpath_simulator_harmonic/install/setup.bash
-  ```
-  </details>
+```bash
+source ~/ubuntu22_jazzy_ws/install/setup.bash
+source ~/gazebo_harmonic_ws/install/setup.bash
+source ~/moveit2_nav2_jazzy_ws/install/setup.bash
+source ~/clearpath_simulator_harmonic/install/setup.bash
+```
+</details>
 
-  ### Ubuntu 24.04 (global workspace)
+### Ubuntu 24.04 (global workspace)
 
-  <details>
+<details>
 
-  ```bash
-  source /opt/ros/jazzy/setup.bash
-  source ~/clearpath_simulator_harmonic/install/setup.bash
-  ```
-  </details>
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/clearpath_simulator_harmonic/install/setup.bash
+```
+</details>
 
-  ### Update udev rules [OPTIONAL]
-  <details>
-  * Recreate symlink and reload udev rules. This example is for xbox but the same rule applies for PS4 / PS5 controllers
+### Update udev rules [OPTIONAL]
+<details>
+* Recreate symlink and reload udev rules. This example is for xbox but the same rule applies for PS4 / PS5 controllers
 
-  ```bash
-  sudo ln -s /dev/input/js2 /dev/input/xbox
-  sudo udevadm control --reload-rules
-  sudo udevadm trigger
-  ls -l /dev/input/xbox
-  ```
-  </details>
+```bash
+sudo ln -s /dev/input/js2 /dev/input/xbox
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+ls -l /dev/input/xbox
+```
+</details>
 
-  ### Launch simulation
-  <details>
+### Launch simulation
+<details>
 
-  ```bash
-  ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
-  ```
-  
-  * Test robot's movement with a TwistStamped message
+```bash
+ros2 launch clearpath_gz empty_launch.py robot_config_yaml:=husky_a200_sample.yaml
+```
 
-  ```bash
-  ros2 topic pub /a200_0000/platform_velocity_controller/cmd_vel geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: 'base_link'}, twist: {linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}}"
-  ```
+* Test robot's movement with a TwistStamped message
 
-  * If the robot moves, then all controller configurations have been setup correctly, now we can use a gamepad to control the robot
+```bash
+ros2 topic pub /a200_0000/platform_velocity_controller/cmd_vel geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: 'base_link'}, twist: {linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}}"
+```
 
-  * Teleop with gamepad
-    - Press and Hold ```LB``` to enable teleop
-    - Press and Hold ```RB``` to enable faster movement
-    - Analog stick 1 controls both linear and angular velocities
+* If the robot moves, then all controller configurations have been setup correctly, now we can use a gamepad to control the robot
 
-  - Launch the ```warehouse_cpr``` world that brings in a A200 Husky robot
+* Launch the ```warehouse_cpr``` world that brings in a A200 Husky robot
 
-  ```bash
-  ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml world:=warehouse_cpr
-  ```
+```bash
+ros2 launch clearpath_gz simulation.launch.py robot_config_yaml:=husky_a200_sample.yaml world:=warehouse_cpr
+```
+
+* Teleop with gamepad
+  - Press and Hold ```LB``` to enable teleop
+  - Press and Hold ```RB``` to enable faster movement
+  - Analog stick 1 controls both linear and angular velocities
+
 </details>
 
 ---
@@ -244,9 +249,14 @@ colcon build --symlink-install --cmake-args -DCMAKE_CXX_FLAGS="-w"
   </details>
 
   ### Some notes on this software stack
+  
   <details>
   - Joystick nodes are launched from the ```clearpath_common/clearpath_control/teleop_joy.launch.py``` file
+
   - To find out where `ros2_control`, `gazebo` plugins and `ros_gz_bridge` elements of A200 Husky robots are defined, start looking into ```clearpath_common/clearpath_platform_description/urdf/a200```. The same is true for the other supported robots
+
+  - ```clearpath_generator_common.generator.py.DescriptionGenerator``` is responsible for writing the `robot.urdf.xacro` which is later on read by the `robot_spwan.launch.py` file in `clearpath_gz` package.
+  
   </details>
 
   ## How to install and use Xbox One Controller [OPTIONAL]

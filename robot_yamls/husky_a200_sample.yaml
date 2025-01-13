@@ -44,7 +44,7 @@ mounts:
 sensors:
   camera:
   # - model: intel_realsense
-  - model: asus_xtion
+  - model: intel_realsense_sim # asus_xtion, intel_realsense, intel_realsense_sim
     urdf_enabled: true
     launch_enabled: true
     parent: fath_pivot_0_mount
@@ -59,4 +59,4 @@ sensors:
         rgb_camera.profile: 640,480,30
         enable_depth: true
         depth_module.profile: 640,480,30
-        pointcloud.enable: true
+        pointcloud.enable: false
