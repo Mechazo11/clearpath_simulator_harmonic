@@ -6,7 +6,7 @@
 
 # Clearpath Simulator in Gazebo Harmonic :fire:
 
-This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) Version 0.34 from Clearpath Robotics that uses Gazebo 8 (Harmonic) as its primary simulator. Installation, how to use guide and some helpful resources are given below. 
+This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) based on `version 0.34` from Clearpath Robotics that uses Gazebo 8 (Harmonic) or later as its primary 3D simulator. Installation, How-to guides and some helpful resources are given below. 
 
 
 https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
@@ -17,6 +17,8 @@ https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
 :hand: All tutorials in thie repository assumes you can send **TwistStamped** commands either through a controller or from keyboard or using ```rqt_joystick```.
 
 :heavy_exclamation_mark: Please note all the original packages from clearpath_simulator v0.3 have been modified for ROS 2 Jazzy and Gazebo Harmonic compatiblity. Hence, only my forks of those packages is known to work at this time.
+
+:heavy_exclamation_mark: `clearpath_simulator` metapackage has been renamed to `clearpath_harmonic`. `clearpath_common`, `clearpath_config` and `clearpath_harmonic`, from Version 0.2 and onwards will use my own version number schema.
 
 ## Supported Features and Compatibility
 
