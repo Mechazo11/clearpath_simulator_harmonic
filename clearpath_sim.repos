@@ -19,10 +19,10 @@ repositories:
     type: git
     url: https://github.com/Mechazo11/puma_motor_driver.git
     version: jazzy
-  sensors/ros2_asus_xtion:
-    type: git
-    url: https://github.com/Mechazo11/ros2_asus_xtion.git
-    version: harmonic_devel
+  # sensors/ros2_asus_xtion:
+  #   type: git
+  #   url: https://github.com/Mechazo11/ros2_asus_xtion.git
+  #   version: harmonic_devel
   sensors/realsense2_gazebo:
     type: git
     url: https://github.com/Mechazo11/realsense2_gazebo.git

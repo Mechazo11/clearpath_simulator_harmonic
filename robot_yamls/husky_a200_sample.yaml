@@ -43,7 +43,7 @@ mounts:
     angle: 0.0
 sensors:
   camera:
-  # - model: intel_realsense
+  #- model: asus_xtion
   - model: intel_realsense_sim # asus_xtion, intel_realsense, intel_realsense_sim
     urdf_enabled: true
     launch_enabled: true
