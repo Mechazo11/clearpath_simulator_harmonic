@@ -8,6 +8,7 @@
 
 This is a modified version of [clearpath_simulator](https://github.com/clearpathrobotics/clearpath_simulator) based on `version 0.34` from Clearpath Robotics that uses Gazebo 8 (Harmonic) or later as its primary 3D simulator. Installation, How-to guides and some helpful resources are given below. 
 
+**05/26/25** As of May 2025, Clearpath has officially upgraded their simulator to be compatible with ROS 2 Jazzy and Gazebo Harmonic. See [here](https://github.com/clearpathrobotics/clearpath_simulator/issues/53#issuecomment-2910142955) for more details.
 
 https://github.com/user-attachments/assets/2e02e99d-9d2f-441a-b091-cf8f8014254d
 
